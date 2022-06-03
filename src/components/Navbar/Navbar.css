@@ -1,0 +1,31 @@
+.logo__nombre {
+    color: black;
+    font-weight: 400;
+}
+.logo__bold {
+    color: rgb(181, 251, 76);
+    font-weight: 700;
+}
+.header {
+    background-color: rgb(72, 166, 135);
+}
+.contenedor {
+    width: 95%;
+    max-width: 120rem;
+    margin: 0 auto;
+
+}
+.contenido-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;   
+    flex-direction: row;    
+}
+.navegacion-principal a {
+    text-align: center;
+    color: blanchedalmond;
+    font-size: 2.4;
+    margin:auto 6px;  
+    font-weight: 700;
+    text-decoration: none;  
+}
