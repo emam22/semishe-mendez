@@ -1,7 +1,7 @@
 import React from "react";
 import './Navbar.css';
 
-export const MiSegComponente = (props) => {
+export const Semi = (props) => {
     const {children} = props;
 
     return ( <body>
