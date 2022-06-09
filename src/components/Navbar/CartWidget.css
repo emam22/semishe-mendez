@@ -13,11 +13,9 @@
     display: inline-block;
     width: 42px;
     height: 42px;
-    background-color: white;
+    background-color: rgb(100, 199, 151);
     border-radius: 50%;
     font-size: 38px;
-    position: absolute;
     text-align: center;
     line-height: 35px;
-    margin-top: 2.5em;
   }

@@ -1,10 +1,12 @@
 import React from "react";
 import './ItemListContainer.css';
+import './button.js';
 
 export const List = () => {
         return (<>
         <main className="lista">
             <h2>Aca iria la lista de productos</h2>
+            <Bttn/>
         </main>
         <Footer/>
        </>
