@@ -6,7 +6,7 @@ export const List = () => {
         return (<>
         <main className="lista">
             <h2>Aca iria la lista de productos</h2>
-            <Bttn/>
+            {/* <Bttn/> */}
         </main>
         <Footer/>
        </>
@@ -21,17 +21,17 @@ const Footer = () => {
     );
 };
 
-const Bttn = () => {
-    const [numero,setNumero] = useState(0)
-    return <>
-    <h4>{numero}</h4>
-    <button onclick={()=>{setNumero(numero+1)}}>
-    +
-    </button>
+// const Bttn = () => {
+//     const [numero,setNumero] = useState(0)
+//     return <>
+//     <h4>{numero}</h4>
+//     <button onclick={()=>{setNumero(numero+1)}}>
+//     +
+//     </button>
 
-    <button onclick={()=>{setNumero(numero-1)}}>
-    -
-    </button>
-    </>
-}
-export default Bttn;
+//     <button onclick={()=>{setNumero(numero-1)}}>
+//     -
+//     </button>
+//     </>
+// }
+// export default Bttn;

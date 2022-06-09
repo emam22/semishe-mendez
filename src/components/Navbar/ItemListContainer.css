@@ -22,6 +22,9 @@
     color: rgb(181, 251, 76);
     font-weight: 700;
 }
+h1 {
+    font-size: 1cm;
+}
 .contenedor h2 {
     color: azure;
     text-align: center;
