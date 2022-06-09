@@ -34,7 +34,7 @@ a {
     display: block;
     color: beige;
     text-decoration: none; 
-    font-size: large;
+    font-size: 1cm;
     font-weight: 650;    
 }
 .navegacion-principal {    
@@ -47,4 +47,8 @@ a {
 .lista {
     margin-left: 1em;
     margin-right: 1em;
+}
+.contenedor h2 {
+    color: azure;
+    text-align: center;
 }

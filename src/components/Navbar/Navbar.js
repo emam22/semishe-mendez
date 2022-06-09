@@ -4,7 +4,7 @@ import './Navbar.css';
 export const Semi = (props) => {
     const {children} = props;
 
-    return ( <body>
+    return (
     <header className="header">
         <div className="contenedor contenido-header">
             <h1 className="logo__nombre">Semi<span className="logo__bold">SHE</span></h1>
@@ -14,16 +14,7 @@ export const Semi = (props) => {
                 <a href="/">Contacto</a> {children}               
             </nav>            
         </div>                
-    </header>
-    <Main/>
-    </body>
+    </header>    
     );
 };
-
-const Main = () => {
-    return (
-    <main className="lista">
-        <h2>Aca iria la lista de productos</h2>
-    </main>)
-}
 
