@@ -31,3 +31,7 @@ footer {
     background-color: rgb(72, 166, 135);
     bottom: 0;
 }
+button {
+    background-color: aqua;
+    width: 120px;
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import './ItemListContainer.css';
-import './button.js';
+import {useEffect, useState} from "react";
 
 export const List = () => {
         return (<>
@@ -20,3 +20,18 @@ const Footer = () => {
         </footer>         
     );
 };
+
+const Bttn = () => {
+    const [numero,setNumero] = useState(0)
+    return <>
+    <h4>{numero}</h4>
+    <button onclick={()=>{setNumero(numero+1)}}>
+    +
+    </button>
+
+    <button onclick={()=>{setNumero(numero-1)}}>
+    -
+    </button>
+    </>
+}
+export default Bttn;

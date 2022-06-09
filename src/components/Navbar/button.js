@@ -1,20 +1,20 @@
-import React from "react";
-import {useEffect, useState} from "react";
+// import React from "react";
+// import {useEffect, useState} from "react";
 
-const Bttn = () => {
-    const [numero,setNumero] = useState(0)
-    return <>
-    <h4>{numero}</h4>
-    <button onclick={()=>{setNumero(numero+1)}}>
-    +
-    </button>
+// const Bttn = () => {
+//     const [numero,setNumero] = useState(0)
+//     return <>
+//     <h4>{numero}</h4>
+//     <button onclick={()=>{setNumero(numero+1)}}>
+//     +
+//     </button>
 
-    <button onclick={()=>{setNumero(numero-1)}}>
-    -
-    </button>
-    </>
-}
-export default Bttn;
+//     <button onclick={()=>{setNumero(numero-1)}}>
+//     -
+//     </button>
+//     </>
+// }
+// export default Bttn;
 
 // function SuperButton() {
 //     function doSomething() {
