@@ -1,10 +1,10 @@
 import React from "react";
 import './Navbar.css';
 
-export const Semi = (props) => {
+export const Navbar = (props) => {
     const {children} = props;
 
-    return (
+    return (<>
     <header className="header">
         <div className="contenedor contenido-header">
             <h1 className="logo__nombre">Semi<span className="logo__bold">SHE</span></h1>
@@ -14,7 +14,16 @@ export const Semi = (props) => {
                 <a href="/">Contacto</a> {children}               
             </nav>            
         </div>                
-    </header>    
+    </header>
+        <Footer/>  
+    </>  
     );
 };
-
+const Footer = () => {
+    return (
+        <footer className="contenedor contenido-header">
+            <h1 className="logo__nombre">Semi<span className="logo__bold">SHE</span></h1>
+            <h2> Emanuel Mendez Dev © 2022.</h2>        
+        </footer>         
+    );
+};

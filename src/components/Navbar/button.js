@@ -37,3 +37,19 @@
 // }
 
 // render(<App />, document.getElementById('root'));
+// ---
+
+// const Bttn = () => {
+//     const [numero,setNumero] = useState(0)
+//     return <>
+//     <h4>{numero}</h4>
+//     <button onclick={()=>{setNumero(numero+1)}}>
+//     +
+//     </button>
+
+//     <button onclick={()=>{setNumero(numero-1)}}>
+//     -
+//     </button>
+//     </>
+// }
+// export default Bttn;

@@ -1,16 +1,16 @@
 import './App.css';
 import { Cart } from './components/Navbar/CartWidget';
-import {Semi} from './components/Navbar/Navbar';
-import {List} from './components/Navbar/ItemListContainer';
+import {Navbar} from './components/Navbar/Navbar';
+import Item from './components/ItemList/Item';
 
 function App() {
   return (
-  <body>
-    <Semi>
+  <>
+    <Navbar>
       <Cart/>
-    </Semi>
-    <List/>
-  </body>
+    </Navbar>
+    <Item/>
+  </>
 )};
 
 export default App;
