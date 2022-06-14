@@ -15,15 +15,15 @@ export const Navbar = (props) => {
             </nav>            
         </div>                
     </header>
-        <Footer/>  
+        {/* <Footer/>   */}
     </>  
     );
 };
-const Footer = () => {
-    return (
-        <footer className="contenedor contenido-header">
-            <h1 className="logo__nombre">Semi<span className="logo__bold">SHE</span></h1>
-            <h2> Emanuel Mendez Dev © 2022.</h2>        
-        </footer>         
-    );
-};
+// const Footer = () => {
+//     return (
+//         <footer className="contenedor contenido-header">
+//             <h1 className="logo__nombre">Semi<span className="logo__bold">SHE</span></h1>
+//             <h2> Emanuel Mendez Dev © 2022.</h2>        
+//         </footer>         
+//     );
+// };

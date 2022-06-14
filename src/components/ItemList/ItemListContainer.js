@@ -5,13 +5,15 @@ import customFetch from '../Products/customFetch';
 import products from '../Products/products';
 import ItemList from '../ItemList/ItemList';
 
+
 function ItemListContainer() {
-        const [item, setItem] = useState([])
+        const [item, setItem] = useState([]);
 
         useEffect(() => {
             customFetch(3000, products)
             .then(resultado => setItem(resultado))
         }, [])
+        
     return (
         <div className='container'>
             <ItemList products={item}/>
@@ -20,3 +22,5 @@ function ItemListContainer() {
 }
 
 export default ItemListContainer;
+
+

@@ -9,6 +9,8 @@ function ItemList ({products}) {
             title={p.title}
             image={p.image}
             price={p.price}
+            describe={p.describe}
+            stock={p.stock}
             />
             )
     )
