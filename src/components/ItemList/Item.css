@@ -16,7 +16,7 @@
         grid-template-columns: repeat(3, 1fr);
         transform: scale(0.8);
         place-items: center;
-        gap: 1em
+        gap: 1em;
     }    
 }
 @media (max-width: 767px) {
@@ -24,11 +24,14 @@
         display: block;
         gap: 50px;
         place-items: center;
-        padding: 10% ;   
+        padding: 10% ;
+        margin-top: -6%;
     }
 }
 div.container {
     place-items: center;
+    gap: 1em;    
+
 }
 
 .card {
@@ -60,4 +63,22 @@ p {
 }
 img {
     width: 100%;
+}
+span.load {
+    display: grid;
+    grid-column-start: 2;
+    text-align: center;
+    font-family: monospace;
+    white-space: nowrap;
+    border-right: 4px solid;
+    font-size: 1cm;
+    animation: typing 2s steps(10),
+    blink .5s infinite step-end alternate;
+    overflow: hidden;
+}
+@keyframes tiping {
+    from {width: 0;}
+}
+@keyframes blink {
+    50% { border-color: transparent;}
 }

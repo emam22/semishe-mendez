@@ -5,10 +5,10 @@ import ItemCount from '../itemCount';
 
 
 
-function Item ({title, price, image, describe, stock}) {
+function Item ({title, price, image, describe, stock,}) {
     // return (<h1>Lista</h1>)
     const onAdd = (quantity) => {
-        console.log("Compraste");
+        console.log('Compraste ${quantity} unidades.');
     }
 
     return (

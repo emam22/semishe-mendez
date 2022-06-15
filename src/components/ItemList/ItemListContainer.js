@@ -15,11 +15,15 @@ function ItemListContainer() {
         }, [])
         
     return (
-        <div className='container'>
-            <ItemList products={item}/>
-        </div>
-    )
-}
+    
+        <div className='container'> 
+                {
+                item?.length <= 0 ? <span className='load'>Loading...</span> : <ItemList products={item}/>
+            }
+                </div>
+        )
+    }
+
 
 export default ItemListContainer;
 
