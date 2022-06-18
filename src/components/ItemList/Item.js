@@ -1,15 +1,11 @@
 import React from "react";
 import './Item.css';
-import ItemCount from '../itemCount';
 
 
 
 
-function Item ({title, price, image, describe, stock,}) {
+function Item ({title, price, image, describe,}) {
     // return (<h1>Lista</h1>)
-    const onAdd = (quantity) => {
-        console.log('Compraste ${quantity} unidades.');
-    }
 
     return (
         <div className="card">
@@ -17,7 +13,7 @@ function Item ({title, price, image, describe, stock,}) {
              <h1>{title}.</h1>
              <p className="price"> -  ${price}  -</p>
              <p className="describe"> {describe} </p>
-             <ItemCount initial={1} stock={stock} onAdd={onAdd} />
+             <h3 className="counter">Realizar Compra</h3>
         </div>
         )
 }

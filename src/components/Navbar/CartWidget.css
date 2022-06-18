@@ -7,15 +7,18 @@
 .cart-widget img {
     width: 202px;
     height: auto;
+    z-index: 1;
 }
   
-  .display {
-    display: inline-block;
-    width: 42px;
-    height: 42px;
-    background-color: rgb(100, 199, 151);
-    border-radius: 50%;
-    font-size: 38px;
-    text-align: center;
-    line-height: 35px;
+/* @media (max-width: 765px) {
+  .display{
+    background-color: bisque;
   }
+} */
+  .display {
+    background-color: rgb(100, 199, 151);
+    border-radius: 50% 20%;
+  color: white;
+  font-size:1.3cm;
+  line-height: 50px;
+}

@@ -11,6 +11,7 @@ function ItemList ({products}) {
             price={p.price}
             describe={p.describe}
             stock={p.stock}
+            description={p.description}
             />
             )
     )

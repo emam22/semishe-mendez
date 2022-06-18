@@ -6,6 +6,7 @@ const products = [
         stock: 4,
         describe:'La hierba de los Hippies! Famosa por la canción de Jimi Hendrix. Una de las mas solicitadas por el publico' ,
         image: 'https://static.wixstatic.com/media/62bae5_2bcbb189e1f949f3bdb8febdf30555b8~mv2.png/v1/fill/w_547,h_547,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/3.png',
+        description:'Una planta grande con rendimientos asombrosos que alcanzan los 350 gr/m2.\t Excelencia en terpenos. Un perfil de terpenos distintivo muy buscado por los extractores.\t Genética de primer nivel. Una de las cepas más populares de nuestro banco.\t Una sativa potente con un toque de indica, perfecta para el uso diario.\t Con 21% de THC, el único golpe que quieres recibir. Un efecto potente que te dará un doble golpe, en la mente y el cuerpo.',
     },
     {
         id: 2,
@@ -13,7 +14,8 @@ const products = [
         price: 3200,
         stock: 6,
         describe:'Una explosion de sabor alimondado! Famosa por no fallar. clasico de clasicos, Citrica como su nombre lo dice',
-        image: 'https://static.wixstatic.com/media/62bae5_6444c62d443e4f24ac01e270fc894335~mv2.png/v1/fill/w_547,h_547,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/4.png'
+        image: 'https://static.wixstatic.com/media/62bae5_6444c62d443e4f24ac01e270fc894335~mv2.png/v1/fill/w_547,h_547,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/4.png',
+        description:"¡23% THC impecable! Perfectamente agridulce y extremadamente potente.\t Encantadora y de rápida floración. Esta variedad puede producir hermosas flores de colores con tonalidades rosadas y rojas en 56-63 días. \t Resina deliciosa. El exclusivo perfil de terpenos de la mofeta, los cítricos y el pastel dulce lo convierte en los extractos más deliciosos.\t Fácil de cultivar. Requiere poco mantenimiento y es muy resistente a las plagas, ¡ideal para cultivadores principiantes en interior o exterior!\t Perfectamente compacto. Crece bastante compacto y robusto, ideal para cultivadores con espacios limitados. \t Híbrido Sativa-dominante bien equilibrado. Perfecto para quienes buscan un efecto cerebral y corporal equilibrado.",
     },
     {
         id: 3,
@@ -22,6 +24,7 @@ const products = [
         stock: 3,
         describe:'Grandes rendimientos, sabores increíbles, belleza de alto calibre y alta potencia ¡en memoria de una leyenda!',
         image: 'https://static.wixstatic.com/media/62bae5_a6ad1a0350a8485e8f524e4a3663e6cc~mv2.png/v1/fill/w_547,h_547,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/5.png',
+        description:'Resina de alta calidad. La cantidad y la calidad de la resina combinada con el fuerte perfil de terpenos lo convierte en una opción perfecta para los más exigentes.\t Varios galardones. En honor al famoso activista, nuestra versión mejorada de la preciada genética.\t Efectivamente, corta y compacta. A pesar de su origen Sativa, esta planta crece alrededor de 90 cm y produce 400 gr/m2 en solo 63 días.\t Sabores atrevidos. Ofrece un sabor dulce y sabroso que expresa todo el espectro de terpenos florales y afrutados.\t Pacífico y agradable. Proporciona un efecto relajante a la vez que te mantiene centrado, una fumada perfecta para principiantes o personas con baja tolerancia.',
     },
     {
         id: 4,
@@ -30,6 +33,7 @@ const products = [
         stock: 4,
         describe:'Un cogollo que hará que tu boca sepa a caramelo. Willy Wonka la aprobo desde su fabrica de chocolates.',
         image: 'https://static.wixstatic.com/media/62bae5_9b1b32452ff940278dfbe6bbfdea7199~mv2.png/v1/fill/w_547,h_547,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/11.png',
+        description:'Cogollos dignos de un rey. Cogollos enormes y densos para aquellos que disfrutan de esa apariencia de estante superior.\t Rendimientos extraordinarios. Hasta 550 gr/m2 en poco menos de 65 días.\t Cepa de ensueño para principiantes. Todo lo que hace una buena genética sin necesidad de mucho mantenimiento o esfuerzo adicional.\t Flores sabrosas. Una variedad rica en terpenos que está a la altura incluso de los fumadores más exigentes.\t Entre las más fuertes. Con un 20% de THC, un efecto inolvidable incluso para los fumadores ávidos.',
     },
     {
         id: 5,
@@ -38,6 +42,7 @@ const products = [
         stock: 10,
         describe:'Un clásico de clásicos! La legendaria AK 47! Matices terrosos, un sabor notable para extracciones.',
         image: 'https://static.wixstatic.com/media/62bae5_694713a7ca8145778eef09199b89ecf8~mv2.png/v1/fill/w_547,h_547,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/8.png',
+        description:'Perfectos terpenos afrutados.  Matices terrosos, un sabor notable para extracciones.\t Baja y fornida. Perfecta para cultivadores con espacio limitado, esta variedad crece alrededor de 90 cm y es convenientemente compacta.\t Infalible. Una genética de bajo mantenimiento, super fácil de cultivar.\t ¡Cultiva en frío! Una planta muy fiable que crece bien incluso en climas fríos y húmedos. \t Espera lo mejor. En solo 70 días te recompensa con 450gr/m2 de cogollos de primera calidad, difíciles de superar.',
     },
     {
         id: 6,
@@ -46,6 +51,7 @@ const products = [
         stock: 8,
         describe:'Una leyenda autofloreciente para los amantes de la gasolina. Informes de laboratorio de 27% de THC.',
         image: 'https://static.wixstatic.com/media/62bae5_eefa14f0ef78414181404a081c283968~mv2.png/v1/fill/w_547,h_547,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/6.png',
+        description:'Ejecutante excepcional. Crece muy bien en todo tipo de climas, especialmente en los más cálidos.\t La leyenda de la costa oeste. ¡La Sativa de fama mundial ahora actualizada y en versión automática! \t ¡Un peso pesado de terpenos! Una verdadera representación de las cepas gaseosas.\t El gigante. Esta variedad puede crecer hasta 120 cm y producir alrededor de 550 gr / m2.\t Una verdadera expresión de la herencia Sativa. Los efectos estimulantes y motivadores te mantendrán volando todo el día.',
     },
 ]
 

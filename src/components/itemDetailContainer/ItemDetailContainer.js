@@ -3,10 +3,10 @@ import {useEffect} from 'react';
 import {useState} from 'react';
 import customFetch from '../Products/customFetch';
 import products from '../Products/products';
-import ItemList from '../ItemList/ItemList';
+import ItemDetail from './ItemDetail.js'; 
 
 
-function ItemListContainer() {
+function ItemDetailContainer() {
         const [item, setItem] = useState([]);
 
         useEffect(() => {
@@ -18,13 +18,11 @@ function ItemListContainer() {
     
         <main className='container'> 
                 {
-                item?.length <= 0 ? <span className='load'>Loading...</span> : <ItemList products={item}/>
+                item?.length <= 0 ? <span className='load'>Loading...</span> : <ItemDetail products={ItemDetail}/>
             }
                 </main>
         )
     }
 
 
-export default ItemListContainer;
-
-
+export default ItemDetailContainer;

@@ -10,8 +10,10 @@ export const Navbar = (props) => {
             <h1 className="logo__nombre">Semi<span className="logo__bold">SHE</span></h1>
             <nav className="navegacion-principal">
                 <a href="/">Nosotros</a>
-                <a href="/">Semillas</a>
-                <a href="/">Contacto</a> {children}               
+                <a href="/">Semillas Auto</a>
+                <a href="/">Semillas CBD</a> 
+                <a className="nav-link" href="/">{children}</a>
+                <h7 className="display">0</h7>               
             </nav>            
         </div>                
     </header>
