@@ -52,8 +52,9 @@ a {
     
     transform: scale(0.7);
 }
-.header, .contenedor {
+.contenedor {
     background-color: rgb(72, 166, 135);
+    justify-content: space-around;
     }
 .lista {
     margin-left: 1em;

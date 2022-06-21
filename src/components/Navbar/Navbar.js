@@ -5,7 +5,7 @@ export const Navbar = (props) => {
     const {children} = props;
 
     return (<>
-    <header className="header">
+    <header>
         <div className="contenedor contenido-header">
             <h1 className="logo__nombre">Semi<span className="logo__bold">SHE</span></h1>
             <nav className="navegacion-principal">

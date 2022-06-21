@@ -59,6 +59,7 @@
             grid-row-start: 3;
             grid-row-end: 4;
         }
+        
     }
     @media (max-width: 765px) {
         .cardFlex img {
@@ -75,6 +76,7 @@
         grid-column-end: 3;
         grid-row-start: -2;
         grid-row-end: 1;
+        font-size: small;
         }
         .counter {
             grid-column-start: 1;
