@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@media (min-width: 768px) {
+    .container1{
+        padding: 0;
+    }
+    .price   {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    }    
+    .description {
+        grid-column-start: 3;
+        grid-column-end: 5;
+        grid-row-start: -3;
+        grid-row-end: 4;
+        font-size: 0.42cm;
+        
+    }
+    
+    .cardFlex img {
+        align-items: flex-end;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: -3;
+        grid-row-end: -1;
+
+    }
+    .counter {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 3;
+        grid-row-end: 4;
+    }
+}
+@media (min-width: 940px) {
+    .price   {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        }    
+        .description {
+            font-size: 0.55cm;
+        }    
+        .cardFlex {
+            display: block;
+            width: 100%;
+            float: left;
+    
+        }
+        .counter {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 3;
+            grid-row-end: 4;
+        }
+    }
+    @media (max-width: 765px) {
+        .cardFlex img {
+            width: 100%;
+        }
+        .price {            
+            grid-column-start: 1;
+            grid-column-end: 5;
+            grid-row-start: 2;
+            grid-row-end: 3;
+        }
+        .description {            
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: -2;
+        grid-row-end: 1;
+        }
+        .counter {
+            grid-column-start: 1;
+            grid-column-end: 5;
+            grid-row-start: 3;
+            grid-row-end: 4;
+        }
+    }
+
+.container1 {
+    padding: 0;
+    padding-top: 1%;
+}
+.cardFlex {
+    display: grid;
+    padding: 0.3%;
+    background-color: rgb(1, 2, 2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: auto 0;
+    margin-bottom: 30px;
+    width: 100%;
+    border-radius: 10px;
+}
+.price {
+    color: goldenrod;
+    font-size: 22px;
+    text-align: center;
+}
+.description {
+    color: gray;
+    padding: 3%;
+}
+h1 {
+    color: aquamarine;
+    font-size: xxx-large;
+    width: 100%;
+}
+p {
+    font-size: large;
+    font-weight: 700;
+    color: gainsboro;
+}
+.cardFlex img {
+    float: left;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: -3;
+
+}
+
+span.load {
+    display: grid;
+    grid-column-start: 2;
+    text-align: center;
+    font-family: monospace;
+    white-space: nowrap;
+    border-right: 4px solid;
+    font-size: 1cm;
+    animation: typing 2s steps(10),
+    blink .5s infinite step-end alternate;
+    overflow: hidden;
+}
+@keyframes tiping {
+    from {width: 0;}
+}
+@keyframes blink {
+    50% { border-color: transparent;}
+}
+h3 {
+    color: rgb(33, 35, 9);
+    font-weight: 800;
+    font-size: 0.8cm;
+}

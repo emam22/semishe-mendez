@@ -82,10 +82,11 @@ span.load {
 @keyframes blink {
     50% { border-color: transparent;}
 }
-h3 {
+button {
     color: rgb(33, 35, 9);
     font-weight: 800;
-    font-size: 0.8cm;
+    font-size: 0.9cm;
+    width: 100%;
 }
 .counter {
     background-color: rgba(139, 195, 27, 0.711);

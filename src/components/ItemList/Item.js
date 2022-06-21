@@ -13,7 +13,7 @@ function Item ({title, price, image, describe,}) {
              <h1>{title}.</h1>
              <p className="price"> -  ${price}  -</p>
              <p className="describe"> {describe} </p>
-             <h3 className="counter">Realizar Compra</h3>
+             <button className="counter" >Realizar Compra</button>
         </div>
         )
 }

@@ -15,12 +15,11 @@ function ItemListContainer() {
         }, [])
         
     return (
-    
-        <main className='container'> 
+    <section className='container'> 
                 {
-                item?.length <= 0 ? <span className='load'>Loading...</span> : <ItemList products={item}/>
+                item.length? <ItemList products={item}/> : <span className='load'>Loading...</span> 
             }
-                </main>
+    </section>
         )
     }
 
