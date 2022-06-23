@@ -8,6 +8,7 @@ import ItemList from '../ItemList/ItemList';
 
 function ItemListContainer() {
         const [item, setItem] = useState([]);
+        
 
         useEffect(() => {
             customFetch(3000, products)

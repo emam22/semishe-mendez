@@ -5,7 +5,7 @@
 }
 
 .cart-widget img {
-    width: 202px;
+    width: 120px;
     height: auto;
     z-index: 1;
 }
@@ -16,9 +16,6 @@
   }
 } */
   .display {
-    background-color: rgb(100, 199, 151);
-    border-radius: 50% 20%;
   color: white;
-  font-size:1.3cm;
-  line-height: 50px;
+  font-size:.8cm;  
 }

@@ -4,23 +4,23 @@ import {useState} from 'react';
 import productsjson from '../Products/products.json'; 
 import ItemDetail from './ItemDetail.js'; 
 import callProducts from '../Products/promise';
-
+import { useParams } from 'react-router-dom';
 
 function ItemDetailContainer() {
         const [product, setProduct] = useState();
-
+        const {id} = useParams();
+         
         useEffect(() => {
-            callProducts(productsjson, 2)
+            callProducts(productsjson, id)
                 .then((res) => setProduct(res))
                 .catch((err) => console.log(err, "Producto no encontrado"));
-        }, []);
+        }, [id]);
         console.log(product);
 
     return (
     <section className='container1'> 
                 {
-                product? <ItemDetail {...product}/> : <span className='load'>Loading...</span> 
-
+                product? <ItemDetail {...product}/> : <span className='load'>Loading...</span>
             }
     </section>
         )

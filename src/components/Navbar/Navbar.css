@@ -6,7 +6,8 @@
 @media (min-width: 768px) {
     .contenedor, .header {
         display: flex;
-        justify-content: space-between;
+        flex-direction: row;
+        justify-content: center;
         align-items: center;
         margin: 0 auto;
         width: auto;
@@ -16,7 +17,6 @@
 @media (min-width: 1080px) {
     .contenedor, .header {
         display: flex;
-        justify-content: center;
         margin: 0;
 
     }
@@ -28,7 +28,7 @@
     text-align: center;
 }
 .logo__bold {
-    color: rgb(181, 251, 76);
+    color: rgb(46, 146, 47);
     font-weight: 700;
 }
 @media (min-width: 768px) {
@@ -40,21 +40,19 @@
     }    
 }
 a {
-    display: block;
-    color: beige;
+    color: rgba(27, 81, 10, 0.568);
     text-decoration: none; 
-    font-size: .8cm;
-    font-weight: 650;    
+    font-size: .5cm;
+    font-weight: 600;    
 }
-.navegacion-principal {    
+.navegacion-principal a { 
+    display: block;   
     text-align: center;
-    font-size: medium;
-    
-    transform: scale(0.7);
+    margin-top: 1%;  
 }
 .contenedor {
-    background-color: rgb(72, 166, 135);
-    justify-content: space-around;
+    background: linear-gradient( 0deg,#6b6600, #d5d513, #dde0b0);
+    box-shadow: 0 14px 28px 0 rgba(0, 0, 0, 0.22);
     }
 .lista {
     margin-left: 1em;
@@ -64,12 +62,19 @@ a {
     color: azure;
     text-align: center;
 }
-h1 {
+.contenedor h1 {
     font-size: 1.6cm;
+    padding-left: 1%;
 }
 footer {
     position: absolute;
     background-color: rgb(72, 166, 135);
     bottom: 0;
     width: 100%;
+}
+.navegacion-principal div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }

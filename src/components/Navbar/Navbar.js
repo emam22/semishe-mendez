@@ -11,9 +11,12 @@ export const Navbar = (props) => {
             <nav className="navegacion-principal">
                 <a href="/">Nosotros</a>
                 <a href="/">Semillas Auto</a>
-                <a href="/">Semillas CBD</a> 
+                <a href="/">Semillas CBD</a>
+                <div>
+                <h4 className="display">0</h4>        
                 <a className="nav-link" href="/">{children}</a>
-                <h7 className="display">0</h7>               
+                </div>
+                      
             </nav>            
         </div>                
     </header>

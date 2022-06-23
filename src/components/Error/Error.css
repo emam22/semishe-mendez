@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.error {
+    background: linear-gradient( 0deg, #ffffff, #ffffff,#ffffff, #ffffff,#ffffff, #ffffff,#ffffff, #ffffff,#ffffff, #ffffff,#ffffff, #ffffff,#ffffff, #ffffff,#ffffff, #ffffff,#ffffff, #ffffff,#ffffff, #ffffff,#ffffff, #ffffff,#ffffff, #ffffff,#ffffff, #ffffff,#ffffff, #ffffff,#ffffff, #ffffff,#ffffff, #ffffff,#ffffff, #ffffff, #6b6600);
+    padding-bottom: 300px;
+}
+@media (min-width: 780px) {
+    h6, h8 {
+        padding-top: 5%;
+    }
+    .img-rick {
+    width: 40%;
+    float: left;
+    margin-top: 4%;
+}
+.error {
+    background: linear-gradient( 0deg, #ffffff, #ffffff,#ffffff, #ffffff,#ffffff, #ffffff,#ffffff, #ffffff,#ffffff, #ffffff,#ffffff, #ffffff,#ffffff, #ffffff,#ffffff, #ffffff,#ffffff, #ffffff,#ffffff, #ffffff,#ffffff, #ffffff,#ffffff, #ffffff,#ffffff, #ffffff,#ffffff, #ffffff,#ffffff, #ffffff,#ffffff, #ffffff,#ffffff, #ffffff, #6b6600);
+    padding-bottom: 800px;
+}
+
+}
+
+.img-rick {
+    width: 50%;
+    margin-top: 6%;
+}
+h6 {
+    color: rgb(13, 239, 164);
+    font-size: 1.2cm;
+}
+h8 {    
+    font-size: .6cm;
+}
+.img-portal {
+    float: right;
+    width: 10%;
+    margin-right: 30%;
+    margin-top: 10%;
+    animation-name: spinning;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+/* linear | ease | ease-in | ease-out | ease-in-out */
+    animation-timing-function: linear;
+      }
+@keyframes spinning {
+        from { transform: rotate(0deg) }
+        to { transform: rotate(360deg) }
+      }

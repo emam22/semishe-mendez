@@ -1,18 +1,9 @@
 import './App.css';
-import { Cart } from './components/Navbar/CartWidget';
-import { Navbar } from './components/Navbar/Navbar';
-// import ItemListContainer from './components/ItemList/ItemListContainer';
-import ItemDetailContainer from './components/itemDetail/ItemDetailContainer';
+import { AppRouting } from './components/Router/Routing';
 
 function App() {
   return (
-  <>
-    <Navbar>
-      <Cart/>
-    </Navbar>
-    <ItemDetailContainer/>
-    {/* <ItemListContainer/> */}
-  </>
+  <> <AppRouting/> </>   
 )};
 
 export default App;
