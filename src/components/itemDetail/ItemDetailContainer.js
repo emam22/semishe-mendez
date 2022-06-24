@@ -17,7 +17,7 @@ function ItemDetailContainer() {
                 .then((res) => setProduct(res))
                 .catch((err) => console.log(err, "Producto no encontrado"));
         }, [id]);
-        console.log(product);
+        console.log(id);
 
     return (
     <section className='container1'> 

@@ -20,6 +20,7 @@ export const AppRouting = () => {
                 <Route path='/item/:id' element={<ItemDetailContainer/>}/>
                 <Route path='/nosotros' element={<Nosotros/>}/>
                 <Route path='/*' element={<Error/>}/>
+                <Route path='/item/undefined' element={<Error/>}/>
             </Routes>        
         </BrowserRouter>
     );
