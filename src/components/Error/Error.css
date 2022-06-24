@@ -24,8 +24,9 @@
 }
 
 .img-rick {
-    width: 50%;
+    width: auto;
     margin-top: 6%;
+    max-height: 650px;
 }
 h6 {
     color: rgb(13, 239, 164);
@@ -37,7 +38,7 @@ h8 {
 .img-portal {
     float: right;
     width: 10%;
-    margin-right: 30%;
+    margin-right: 10%;
     margin-top: 10%;
     animation-name: spinning;
     animation-duration: 6s;
