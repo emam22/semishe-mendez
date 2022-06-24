@@ -2,9 +2,21 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# SemiSHE 
+It is a page for the sale of seeds for self-cultivation of marijuana.
+Remember that life is happier with her than without her.
+
 ## Available Scripts
 
 In the project directory, you can run:
+
+## How to contribute
+
+You can create a pull request to the project
+
+### How to start
+
+Clone the repository from [https://github.com/emam22/semishe-mendez]
 
 ### `npm start`
 
@@ -68,4 +80,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Licencia
+
+EMA
 

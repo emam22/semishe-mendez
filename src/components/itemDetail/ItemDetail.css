@@ -132,10 +132,11 @@ h3 {
     font-size: 0.8cm;
 }
 .img-portall {
+    display: grid;
     grid-column-start: 2;
     text-align: center;
     width: 40%;
-    margin-right: 30%;
+    margin-right: 0;
     margin-top: 10%;
     animation-name: spinning;
     animation-duration: 6s;
