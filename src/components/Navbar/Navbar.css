@@ -7,7 +7,7 @@
     .contenedor, .header {
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         margin: 0 auto;
         width: auto;
@@ -48,7 +48,7 @@ a {
 .navegacion-principal a { 
     display: block;   
     text-align: center;
-    margin-top: 1%;  
+    margin-top: 2%;  
 }
 .contenedor {
     background: linear-gradient( 0deg,#6b6600, #d5d513, #dde0b0);

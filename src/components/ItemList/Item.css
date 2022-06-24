@@ -32,9 +32,6 @@ section.container {
     gap: 1em;    
 
 }
-.card div {
-
-}
 .card {
     display: block;
     background-color: rgb(1, 2, 2);
@@ -81,21 +78,20 @@ button {
     border-radius: 10px;
     font-size: 0.6cm;
 }
-span.load {
-    display: grid;
+
+.img-portall {
     grid-column-start: 2;
     text-align: center;
-    font-family: monospace;
-    white-space: nowrap;
-    border-right: 4px solid;
-    font-size: 1cm;
-    animation: typing 2s steps(10),
-    blink .5s infinite step-end alternate;
-    overflow: hidden;
-}
-@keyframes tiping {
-    from {width: 0;}
-}
-@keyframes blink {
-    50% { border-color: transparent;}
-}
+    width: 40%;
+    margin-right: 30%;
+    margin-top: 10%;
+    animation-name: spinning;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+/* linear | ease | ease-in | ease-out | ease-in-out */
+    animation-timing-function: linear;
+      }
+@keyframes spinning {
+        from { transform: rotate(0deg) }
+        to { transform: rotate(360deg) }
+      }

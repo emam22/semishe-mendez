@@ -5,6 +5,8 @@ import productsjson from '../Products/products.json';
 import ItemDetail from './ItemDetail.js'; 
 import callProducts from '../Products/promise';
 import { useParams } from 'react-router-dom';
+import portal from '../Error/img24.png';
+
 
 function ItemDetailContainer() {
         const [product, setProduct] = useState();
@@ -20,7 +22,7 @@ function ItemDetailContainer() {
     return (
     <section className='container1'> 
                 {
-                product? <ItemDetail {...product}/> : <span className='load'>Loading...</span>
+                product? <ItemDetail {...product}/> : <img className="img-portall" src={portal} alt="portall" />
             }
     </section>
         )

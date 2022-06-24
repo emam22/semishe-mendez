@@ -126,27 +126,24 @@ p {
     grid-row-start: -3;
 
 }
-
-span.load {
-    display: grid;
-    grid-column-start: 2;
-    text-align: center;
-    font-family: monospace;
-    white-space: nowrap;
-    border-right: 4px solid;
-    font-size: 1cm;
-    animation: typing 2s steps(10),
-    blink .5s infinite step-end alternate;
-    overflow: hidden;
-}
-@keyframes tiping {
-    from {width: 0;}
-}
-@keyframes blink {
-    50% { border-color: transparent;}
-}
 h3 {
     color: rgb(33, 35, 9);
     font-weight: 800;
     font-size: 0.8cm;
 }
+.img-portall {
+    grid-column-start: 2;
+    text-align: center;
+    width: 40%;
+    margin-right: 30%;
+    margin-top: 10%;
+    animation-name: spinning;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+/* linear | ease | ease-in | ease-out | ease-in-out */
+    animation-timing-function: linear;
+      }
+@keyframes spinning {
+        from { transform: rotate(0deg) }
+        to { transform: rotate(360deg) }
+      }

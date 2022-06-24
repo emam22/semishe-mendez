@@ -4,7 +4,7 @@ import {useState} from 'react';
 import customFetch from '../Products/customFetch';
 import products from '../Products/products';
 import ItemList from '../ItemList/ItemList';
-
+import portal from '../Error/img24.png';
 
 function ItemListContainer() {
         const [item, setItem] = useState([]);
@@ -18,7 +18,7 @@ function ItemListContainer() {
     return (
     <section className='container'> 
                 {
-                item.length? <ItemList products={item}/> : <span className='load'>Loading...</span> 
+                item.length? <ItemList products={item}/> : <img className="img-portall" src={portal} alt="portall" />
             }
     </section>
         )
