@@ -61,7 +61,7 @@
     },
     {
         "id": 101,
-        "title": "Mix Auto Farmers",
+        "title": "Mix Auto",
         "price": 4500,
         "stock": 12,
         "category": "mix",
@@ -71,7 +71,7 @@
     },
     {
         "id": 102,
-        "title": "Mix Fem Farmers",
+        "title": "Mix Fem",
         "price": 4500,
         "stock": 14,
         "category": "mix",
