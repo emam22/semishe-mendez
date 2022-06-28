@@ -10,7 +10,7 @@ const callProductsCategory = (data, categoryId) => {
             } else {
                 reject("Error");
             }
-        }, 2000);
+        }, 1500);
     });
 };
 export default callProductsCategory;

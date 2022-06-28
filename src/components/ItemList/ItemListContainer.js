@@ -19,7 +19,7 @@ function ItemListContainer() {
                     .then((res) => setItems(res))
                     .catch((err) => console.log(err, "Producto no encontrado"));
             }else {
-                customFetch(3000, products)
+                customFetch(1500, products)
                     .then(resultado => setItems(resultado))
             }           
         }, [categoryId]);
