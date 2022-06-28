@@ -14,6 +14,8 @@ function ItemList ({products}) {
             describe={p.describe}
             stock={p.stock}
             description={p.description}
+            category={p.category}
+            {...p}
             />
             )
     )
