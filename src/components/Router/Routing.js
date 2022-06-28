@@ -16,7 +16,7 @@ export const AppRouting = () => {
             </Navbar>
             <Routes>
                 <Route path='/' element={<ItemListContainer/>}/>
-                <Route path='/category/:id' element={<ItemListContainer/>}/>
+                <Route path='/category/:categoryId' element={<ItemListContainer/>}/>
                 <Route path='/item/:id' element={<ItemDetailContainer/>}/>
                 <Route path='/nosotros' element={<Nosotros/>}/>
                 <Route path='/*' element={<Error/>}/>

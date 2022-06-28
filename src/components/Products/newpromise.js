@@ -1,12 +1,11 @@
-const callProductsCategory = (data, id) => {
+const callProductsCategory = (data, categoryId) => {
     return new Promise((resolve, reject) => {
-        setTimeout(()=>{
             if(data){
-            resolve(data.find((prod) => prod.id >= (100)));
+            resolve(data.filter((prod) => prod.category !== categoryId ));
             }else{
             reject("Error420");
             }
-            }, 2000)
-    })
-}
+        }
+        )
+    };
 export default callProductsCategory;

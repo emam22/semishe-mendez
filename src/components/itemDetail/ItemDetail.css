@@ -62,6 +62,10 @@
         
     }
     @media (max-width: 765px) {
+        .cardFlex {
+            margin-left: 3%;
+            margin-right: 3%;
+        }
         .cardFlex img {
             width: 100%;
         }
