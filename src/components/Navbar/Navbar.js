@@ -24,11 +24,12 @@ export const Navbar = (props) => {
                 <Link to={`/category/mix`}>
                     <a href="/" >Semillas MixAuto</a>
                 </Link>
-            <div>
-                    <h4 className="display">0</h4>        
+            <div> 
                 <Link to={`/`}>
                     <a className="nav-link" href="/">{children}</a>
                 </Link>
+                    <h4 className="display">0</h4>        
+               
             </div>                      
             </nav>            
         </div>                

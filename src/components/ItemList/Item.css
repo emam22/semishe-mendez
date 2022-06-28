@@ -27,7 +27,7 @@ section.container {
     gap: 1em;    
 
 }
-.card {
+.card { 
     display: block;
     background-color: rgb(1, 2, 2);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -48,11 +48,12 @@ section.container {
     padding-left: 3%;
     padding-right: 3%;
     font-size: 0.4cm;
+    height: 60px;
     }
 
 .card h1 {
     color: rgb(249, 242, 40);
-    font-size: 1.3cm;
+    font-size: 1.1cm;
 }
 p {
     font-size: large;
