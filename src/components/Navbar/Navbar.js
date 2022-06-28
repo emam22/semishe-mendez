@@ -17,11 +17,12 @@ export const Navbar = (props) => {
                 <Link to={`/nosotros`}>
                     <a href="/" >Nosotros</a>
                 </Link>
+                
                 <Link to={`/category/auto`}>
-                    <a href="/" >Semillas MixAuto</a>
+                    <a href="/" >Semillas Auto</a>
                 </Link>
                 <Link to={`/category/mix`}>
-                    <a href="/" >Semillas Auto</a>
+                    <a href="/" >Semillas MixAuto</a>
                 </Link>
             <div>
                     <h4 className="display">0</h4>        

@@ -1,17 +1,33 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@media (min-width: 940px) {
+    .price   {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }    
+    .description {
+        font-size: 0.55cm;
+    }    
+    .cardFlex {
+        float: left;
+        margin: 3% 3%;
+        }
+    .counter {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 3;
+        grid-row-end: 4;
+        }
 }
 @media (min-width: 768px) {
     .container1{
         padding: 0;
     }
     .price   {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 2;
-    grid-row-end: 3;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 3;
     }    
     .description {
         grid-column-start: 3;
@@ -21,7 +37,9 @@
         font-size: 0.42cm;
         
     }
-    
+    .cardFlex {
+        margin: 1%;
+    }
     .cardFlex img {
         align-items: flex-end;
         grid-column-start: 1;
@@ -37,34 +55,9 @@
         grid-row-end: 4;
     }
 }
-@media (min-width: 940px) {
-    .price   {
-        grid-column-start: 1;
-        grid-column-end: 3;
-        grid-row-start: 2;
-        grid-row-end: 3;
-        }    
-        .description {
-            font-size: 0.55cm;
-        }    
+@media (max-width: 765px) {
         .cardFlex {
-            display: block;
-            width: 100%;
-            float: left;
-    
-        }
-        .counter {
-            grid-column-start: 1;
-            grid-column-end: 3;
-            grid-row-start: 3;
-            grid-row-end: 4;
-        }
-        
-    }
-    @media (max-width: 765px) {
-        .cardFlex {
-            margin-left: 3%;
-            margin-right: 3%;
+            margin: 1%;
         }
         .cardFlex img {
             width: 100%;
@@ -99,9 +92,6 @@
     padding: 0.3%;
     background-color: rgb(1, 2, 2);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    margin: auto 0;
-    margin-bottom: 30px;
-    width: 100%;
     border-radius: 10px;
 }
 .price {
