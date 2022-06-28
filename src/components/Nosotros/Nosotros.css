@@ -1,11 +1,13 @@
 
 .nosotros {
-    box-shadow: 0 24px 38px 0 rgba(0, 0, 0, 0.5);
+    padding-top: 5%;    
+    background: linear-gradient( 0deg, black, black, black, black, rgb(77, 73, 0),hsla(57, 100%, 15%, 0.838),#6b6600 );
+    box-shadow: 0 14px 28px 0 rgba(0, 0, 0, 0.22);
 }
-.nosotros h2{
-    margin-top: 5%;
+.nosotros h2{    
     text-align: center;
     font-size: 1.3cm;
+    color: rgb(203, 126, 25);
 }
 .nosotros p {
     text-align: center;
@@ -15,13 +17,17 @@
 }
 .nosotros h3 {
     color: aliceblue;
-    font-size: .4cm;
+    font-size: .3cm;
     text-align: center;
     float: inline-end;
-    padding-top: 20%;
-    margin-bottom: 3%;
+    padding-top: 8%;
 }
 .img-ram {
     width: 20%;
     float: left;    
+}
+.img-nos {
+    align-items: center;
+    width:auto;
+    margin: 7%;
 }
