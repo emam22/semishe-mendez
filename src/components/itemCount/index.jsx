@@ -1,17 +1,15 @@
 import './itemCount.css';
-import React, {useState} from 'react';
-import '../Products/products';
+import React, { useState, } from 'react';
+import '../Products/products.json';
+
+
 
 export const ItemCount = ({initial, stock, onAdd}) => {
     const [count, setCount] = useState(initial);
-
-    const decrease = () => {
-        setCount(count - 1);
-    }
-    const increase = () => {
-        setCount(count + 1);
-    }
-
+        const decrease = () => {
+            setCount(count - 1);}
+        const increase = () => {
+            setCount(count + 1);}
     return (
         <>
         <div className="counter">
