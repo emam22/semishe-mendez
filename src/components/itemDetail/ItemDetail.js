@@ -1,25 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './ItemDetail.css';
 import ItemCount from '../itemCount';
+import {Link} from 'react-router-dom';
 
 
 function ItemDetail ({title, price, image, description, stock,}) {
+    const [addCart, setAddCart] = useState(false);
     const onAdd = ( ) => { 
         console.log('Compraste ${} unidades.');    
-        this.setAddCart(( ) => {
-            console.log('assa');
-    }, 1500)
-}
-
-function TerminarCompra( ) {
-    const [addCart, setAddCart] = useState();
-        useEffect(() => {console.log(addCart)}, []);
-        return (
-        <>
-            <button className='add'>Terminar Compra</button>
-        </>
-        )
-}          
+        setAddCart(true);
+}       
 
     return (
         <div className="cardFlex">
@@ -28,13 +18,12 @@ function TerminarCompra( ) {
             <p className="description"> {description} </p>
             
             {
-                stock>=1
+                !addCart
                 ? <ItemCount className="itemCount" initial={1} stock={stock} onAdd={onAdd} />
-                : <TerminarCompra/>
+                : <Link to="/cart" className='add-end'>Terminar Compra</Link>
                 
             }
-            </div>
-       
+            </div>       
         )
 }
 export default ItemDetail;
