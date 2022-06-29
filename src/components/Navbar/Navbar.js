@@ -25,7 +25,7 @@ export const Navbar = (props) => {
                     <a href="/" >Semillas MixAuto</a>
                 </Link>
             <div> 
-                <Link to={`/`}>
+                <Link to={`/cart`}>
                     <a className="nav-link" href="/">{children}</a>
                 </Link>
                     <h4 className="display">0</h4>        
