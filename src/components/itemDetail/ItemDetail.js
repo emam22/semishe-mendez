@@ -1,42 +1,39 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './ItemDetail.css';
 import ItemCount from '../itemCount';
 
 
 function ItemDetail ({title, price, image, description, stock,}) {
-    const onAdd = (MyComponent) => { 
-        console.log('Compraste ${} unidades.');
-        
-    class MyComponent extends React.Component {
-        constructor(props) {
-            super(props);
-            this.state = { showTitle: false };
-        }
-    
-        render() {
-            return (
-              <div>
-                <button onClick={() => this.setState({ showTitle: true })}>Click</button>
-                {this.state.showTitle && (
-                  <button className='add'>Finalizar Compra</button>
-                )}
-              </div>
-            );
-          }
-        }
-    }
+    const onAdd = ( ) => { 
+        console.log('Compraste ${} unidades.');    
+        this.setAddCart(( ) => {
+            console.log('assa');
+    }, 1500)
+}
+
+function TerminarCompra( ) {
+    const [addCart, setAddCart] = useState();
+        useEffect(() => {console.log(addCart)}, []);
+        return (
+        <>
+            <button className='add'>Terminar Compra</button>
+        </>
+        )
+}          
 
     return (
         <div className="cardFlex">
-             <img src={image} alt={title}/>
-             <p className="price"> -  ${price}  -</p>
-             <p className="description"> {description} </p>
+            <img src={image} alt={title}/>
+            <p className="price"> -  ${price}  -</p>
+            <p className="description"> {description} </p>
+            
             {
-                MyComponent.length
-                ?<ItemCount className="itemCount" initial={1} stock={stock} onAdd={onAdd} />
-                :<MyComponent> </MyComponent>
+                stock>=1
+                ? <ItemCount className="itemCount" initial={1} stock={stock} onAdd={onAdd} />
+                : <TerminarCompra/>
+                
             }
-        </div>
+            </div>
        
         )
 }
