@@ -7,30 +7,19 @@ import { Link } from 'react-router-dom';
 export const Navbar = (props) => {
     const {children} = props;
 
-    return (<>
+    return (
+    <>
     <header>
         <div className="contenedor contenido-header">
-                <Link to={`/`}>
-                    <h1 className="logo__nombre">Semi<span className="logo__bold">SHE</span></h1>
-                </Link>
+                <Link className="link" to={`/`}><h1 className="logo__nombre">Semi<span className="logo__bold">SHE</span></h1></Link>
             <nav className="navegacion-principal">
-                <Link to={`/nosotros`}>
-                    <a href="/" >Nosotros</a>
-                </Link>
-                
-                <Link to={`/category/auto`}>
-                    <a href="/" >Semillas Auto</a>
-                </Link>
-                <Link to={`/category/mix`}>
-                    <a href="/" >Semillas MixAuto</a>
-                </Link>
-            <div> 
-                <Link to={`/cart`}>
-                    <a className="nav-link" href="/">{children}</a>
-                </Link>
-                    <h4 className="display">0</h4>        
-               
-            </div>                      
+                <Link className="link" to={`/nosotros`}> Nosotros </Link>
+                <Link className="link" to={`/category/auto`}> Semillas Auto </Link>
+                <Link className="link" to={`/category/mix`}> Semillas MixAuto </Link>
+                <div> 
+                    <Link className="nav-link" to={`/cart`}> {children} </Link>
+                    <h4 className="display">0</h4>               
+                </div>                      
             </nav>            
         </div>                
     </header>

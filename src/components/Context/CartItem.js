@@ -25,9 +25,9 @@ export const CartItem = ({id, title, price, image, count}) => {
                     <p className="untotalprice"> ${totalprice} </p>
                     <button className="btn420" onClick={()=>{removerDelCarrito(carrito.id)}}>remove</button>
         </div>
-        <div>            
+        <div className="finished">            
             <button className="btn420" onClick={vaciarCarrito}>Vaciar</button>
-            <button className="btn420">Finalizar</button>
+            <button className="btn420, send">Finalizar</button>
         </div>
 
     </section>

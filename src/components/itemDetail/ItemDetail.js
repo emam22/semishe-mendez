@@ -7,12 +7,12 @@ import { CartContext } from '../Context/CartContext';
 
 function ItemDetail ({id, title, price, image, description, stock,}) {
     const {addCart, isInCart} = useContext(CartContext);
+    const [addsCart, setAddsCart] = useState();
     const [counter, setCounter] = useState(0);
-    const onAdd = ( quantity ) => { 
-        console.log(quantity, addCart);    
-        if (counter > 0){
-            isInCart({id, title, price, stock, image})
-        }
+    const onAdd = ( quantity ) => {  
+            isInCart({id, title, price, stock, image,quantity})
+            setAddsCart()
+        
 }       
     return (
         <div key={id} className="cardFlex">
@@ -20,10 +20,11 @@ function ItemDetail ({id, title, price, image, description, stock,}) {
             <p className="price"> -  ${price}  -</p>
             <p className="description"> {description} </p>
             {
-                isInCart(id)
+                !addsCart
                 ? <ItemCount className="itemCount" 
                 counter={counter}
-                setCounter={setCounter} stock={stock} onAdd={onAdd} />
+                setCounter={setCounter} 
+                initial={0}  stock={stock} onAdd={onAdd} />
                 : <Link to="/cart" className='add-end'><h3>Terminar Compra</h3></Link>
                 
             }

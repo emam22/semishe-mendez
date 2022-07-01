@@ -12,6 +12,7 @@
     grid-row-start: 2;
     grid-column-start: 1;
     text-align: left;
+    justify-content: space-around;
     
 }
 .image {
@@ -41,13 +42,26 @@ p {
     display: grid;
     grid-template-columns: repeat(5 1fr);
     grid-row-start: 1;
-    column-gap: 80px;
+    border-collapse: collapse;
+    border: solid 3px black;
+    height: 35px;
+    width: auto;
 }
 h5 {
     color: rgb(114, 232, 240);
     font-size: 0.5cm;
     text-align: flex-end;
 }
-button {
+.btn420 {
+    background-color: rgb(155, 70, 42);
+    grid-column-start: 6;
+    width: auto;
+    font-size: .4cm;
+}
+.finished {
+    display: flex;
+    margin-top: 10px;
+}
+.send {
     background-color: rgb(110, 155, 42);
 }
