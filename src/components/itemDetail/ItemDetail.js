@@ -6,12 +6,13 @@ import { CartContext } from '../Context/CartContext';
 
 
 function ItemDetail ({id, title, price, image, description, stock,}) {
-    const {addCart, isInCart} = useContext(CartContext);
+    const {addCart} = useContext(CartContext);
     const [addsCart, setAddsCart] = useState();
     const [counter, setCounter] = useState(0);
-    const onAdd = ( quantity ) => {  
-            isInCart({id, title, price, stock, image,quantity})
-            setAddsCart()
+    const onAdd = ( carrito, quantity ) => {   console.log(carrito, quantity);
+            addCart({id, title, price, stock, image, quantity})
+            setAddsCart({id,quantity})
+           
         
 }       
     return (

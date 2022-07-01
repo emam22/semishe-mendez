@@ -4,7 +4,7 @@ import '../Products/products.json';
 
 
 
-export const ItemCount = ({initial, stock, onAdd}) => {
+export const ItemCount = ({initial, stock, onAdd, counter}) => {
     const [count, setCount] = useState(initial);
         const decrease = () => {
             setCount(count - 1);}
