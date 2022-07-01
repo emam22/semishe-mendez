@@ -2,8 +2,9 @@ import React, { useContext, useState } from 'react';
 import './ItemDetail.css';
 import ItemCount from '../itemCount';
 import {Link} from 'react-router-dom';
+import { CartContext } from '../Context/CartContext';
 function ItemDetail ({id, title, price, image, description, stock,}) {
-    const {addCart, isInCart} = useContext;
+    const {addCart, isInCart} = useContext(CartContext);
     const [counter, setCounter] = useState(false);
     const onAdd = ( quantity ) => { 
         console.log(quantity, isInCart);    
