@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { CartContext } from './CartContext';
 
-export const CartItem = ({title, price, image, count}) => {
+export const CartItem = ({id, title, price, image, count}) => {
     const quantity = count;
     const totalprice = parseFloat(price * quantity);
 
@@ -16,7 +16,7 @@ export const CartItem = ({title, price, image, count}) => {
                 <h5 className="unprice"> Precio por unidad</h5>
                 <h5 className="untotalprice"> Total a pagar</h5>
         </div>
-        <div className="order-item">
+        <div key={id} className="order-item">
                 
                     <img className="image" src={image} alt={title} />
                     <p className="title">{title}.</p>

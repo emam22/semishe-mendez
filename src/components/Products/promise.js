@@ -1,6 +1,6 @@
 const callProducts = (data, id) => {
     return new Promise((resolve, reject) => {
-        setTimeout(()=>{
+        setTimeout(( ) => {
             if (data) {
                 resolve(data.find((prod) => prod.id === parseInt(id)));
             } else {

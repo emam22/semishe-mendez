@@ -1,6 +1,6 @@
 const callProductsCategory = (data, categoryId) => {
     return new Promise((resolve, reject) => {
-        setTimeout(() => {
+        setTimeout(( ) => {
             if (data) {
                 resolve(
                     categoryId

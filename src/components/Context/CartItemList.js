@@ -15,6 +15,7 @@ function CartItemList ({carrito}) {
             category={p.category}
             {...p}
             quantity={p.quantity}
+            isInCart={p.isInCart}
             />
             )
     )

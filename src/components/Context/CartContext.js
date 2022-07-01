@@ -21,7 +21,7 @@ export const CartProvider = ({children}) => {
         return carrito.reduce((acc, p)=>acc + p.counter, 0)
     }
     const isInCart = (id) => {
-        return carrito.some(p => p.id === id)
+        return setCarrito(p => p.id === id)
     }
     return (       
         <CartContext.Provider 

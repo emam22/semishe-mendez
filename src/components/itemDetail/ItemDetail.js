@@ -3,13 +3,15 @@ import './ItemDetail.css';
 import ItemCount from '../itemCount';
 import {Link} from 'react-router-dom';
 import { CartContext } from '../Context/CartContext';
+
+
 function ItemDetail ({id, title, price, image, description, stock,}) {
     const {addCart, isInCart} = useContext(CartContext);
-    const [counter, setCounter] = useState(false);
+    const [counter, setCounter] = useState(0);
     const onAdd = ( quantity ) => { 
-        console.log(quantity, isInCart);    
+        console.log(quantity, addCart);    
         if (counter > 0){
-            addCart({id, title, price, stock, image})
+            isInCart({id, title, price, stock, image})
         }
 }       
     return (
@@ -18,7 +20,7 @@ function ItemDetail ({id, title, price, image, description, stock,}) {
             <p className="price"> -  ${price}  -</p>
             <p className="description"> {description} </p>
             {
-                !isInCart
+                isInCart(id)
                 ? <ItemCount className="itemCount" 
                 counter={counter}
                 setCounter={setCounter} stock={stock} onAdd={onAdd} />
