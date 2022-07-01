@@ -1,0 +1,53 @@
+.order-list {
+    background-color: rgb(177, 177, 177); 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 2%;
+    padding-bottom: 200px;
+}.order-item {
+    display: grid;
+    grid-template-columns: repeat(5 1fr);
+    column-gap: 80px;
+    background-color: aliceblue;
+    align-items: center;
+    grid-row-start: 2;
+    grid-column-start: 1;
+    text-align: left;
+    
+}
+.image {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    width: 70px;
+    height: 70px;
+    margin-left: 25%;
+}
+p {
+    color: rgb(14, 79, 3);
+
+}
+.title {
+    grid-column-start: 2;
+}
+.unidades {
+    grid-column-start: 3;
+}
+.unprice{
+    grid-column-start: 4;
+}
+.untotalprice{
+    grid-column-start: 5;
+}
+.ref {
+    display: grid;
+    grid-template-columns: repeat(5 1fr);
+    grid-row-start: 1;
+    column-gap: 80px;
+}
+h5 {
+    color: rgb(114, 232, 240);
+    font-size: 0.5cm;
+    text-align: flex-end;
+}
+button {
+    background-color: rgb(110, 155, 42);
+}

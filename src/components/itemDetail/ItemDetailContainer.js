@@ -22,9 +22,9 @@ function ItemDetailContainer() {
     return (
     <section className='container1'> 
             {
-                product 
+                !product 
                 ? <ItemDetail {...product}/> 
-                : <img className="img-portalll" src={portal} alt="portall" />
+                : <img className="img-portall" src={portal} alt="portall" />
             }
     </section>
         )
