@@ -9,7 +9,7 @@ function ItemDetail ({id, title, price, image, description, stock,}) {
     const {addCart} = useContext(CartContext);
     const [addsCart, setAddsCart] = useState();
     const [counter, setCounter] = useState(0);
-    const onAdd = ( carrito, quantity ) => {   console.log(carrito, quantity);
+    const onAdd = ( item, quantity) => {   console.log(item);
             addCart({id, title, price, stock, image, quantity})
             setAddsCart({id,quantity})
            
