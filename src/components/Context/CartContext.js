@@ -15,10 +15,9 @@ export const CartProvider = ({children}) => {
 
     useEffect(()=> {   
         localStorage.setItem('cartProducts', JSON.stringify(cartItems));
-        }, [cartItems]);
+    }, [cartItems]);
 
     const addCart = (product) => {
-        console.log(product)
         const inCart = cartItems.find(
             (productInCart) => productInCart.id === product.id
         );
@@ -33,25 +32,18 @@ export const CartProvider = ({children}) => {
         } else {
             setCartItems([...cartItems, {...product}])
         }
-    }   
-    const removerDelCarrito=(product)=>{
-        const inCart = cartItems.find(
-            (productInCart) => productInCart.id === product.id);
-            if(inCart.stock === 1) {
-                setCartItems(
-                    cartItems.filter(productInCart => productInCart.id !== product.id)
-                )
-            } else {
-                setCartItems((productInCart) => {
-                    if(productInCart.id === product.id){
-                        return {...inCart, stock: inCart.stock -1};
-                    } else return productInCart;
-                })
-            }
     }
+
+    const removerDelCarrito = (idProduct) => {
+        setCartItems(
+            cartItems.filter(item => item.id !== idProduct)
+        )
+    }
+
      const vaciarCarrito=()=>{
         setCartItems([])
     }
+
     return (       
         <CartContext.Provider 
             value={{cartItems, removerDelCarrito, addCart, vaciarCarrito, }}>
