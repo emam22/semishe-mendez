@@ -17,7 +17,8 @@ export const CartProvider = ({children}) => {
         localStorage.setItem('cartProducts', JSON.stringify(cartItems));
         }, [cartItems]);
 
-    const addCart = (product) =>{
+    const addCart = (product) => {
+        console.log(product)
         const inCart = cartItems.find(
             (productInCart) => productInCart.id === product.id
         );
@@ -30,7 +31,7 @@ export const CartProvider = ({children}) => {
                 })
             )
         } else {
-            setCartItems([...cartItems, {...product,stock: 1}])
+            setCartItems([...cartItems, {...product}])
         }
     }   
     const removerDelCarrito=(product)=>{

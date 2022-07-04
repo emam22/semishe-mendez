@@ -4,7 +4,7 @@ import '../Products/products.json';
 
 
 
-export const ItemCount = ({initial, stock, }) => {
+export const ItemCount = ({ initial, stock, getStock }) => {
     const [count, setCount] = useState(initial);
         const decrease = () => {
             setCount(count - 1);}
@@ -18,7 +18,7 @@ export const ItemCount = ({initial, stock, }) => {
             <span className='num'>{count}</span>
             <button className='num' disabled={count >= stock} onClick={increase}>+</button>
             <div>
-                <button className='add' disabled={stock <= 0}>Agregar al carrito</button>
+                <button className='add' disabled={stock <= 0} onClick={() => getStock(count)}>Agregar al carrito</button>
             </div>
         </div>
         </>
