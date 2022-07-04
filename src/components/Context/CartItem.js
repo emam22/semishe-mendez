@@ -1,11 +1,10 @@
 import React, { useContext } from 'react';
 import { CartContext } from './CartContext';
 
-export const CartItem = ({id, title, price, image, count}) => {
-    const quantity = count;
-    const totalprice = parseFloat(price * quantity);
-
-    const {carrito, vaciarCarrito, removerDelCarrito} = useContext(CartContext);
+export const CartItem = ({id, title, price, image, setCount}) => {
+    const totalprice = parseFloat(price * setCount);
+   
+    const {cartItems, vaciarCarrito, removerDelCarrito} = useContext(CartContext);
 
     return (
     <section className="order-list">
@@ -20,10 +19,10 @@ export const CartItem = ({id, title, price, image, count}) => {
                 
                     <img className="image" src={image} alt={title} />
                     <p className="title">{title}.</p>
-                    <p className="unidades">{quantity}</p>
+                    <p className="unidades">{setCount}</p>
                     <p className="unprice"> ${price} </p>
                     <p className="untotalprice"> ${totalprice} </p>
-                    <button className="btn420" onClick={()=>{removerDelCarrito(carrito.id)}}>remove</button>
+                    <button className="btn420" onClick={()=>{removerDelCarrito(cartItems.id)}}>remove</button>
         </div>
         <div className="finished">            
             <button className="btn420" onClick={vaciarCarrito}>Vaciar</button>

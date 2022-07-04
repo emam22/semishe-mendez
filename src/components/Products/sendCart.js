@@ -1,10 +1,11 @@
-import producsjson from './products.json';
-
-const sendCart = () =>{
-    return new Promise((resolve, reject)=>{
-        setTimeout(()=>{
-            resolve(producsjson)
-        }, 3000)
+export const sendCart = (data, id) =>{
+    return new Promise((resolve, reject) => {
+        setTimeout(( ) => {
+            if (data) {
+                resolve(data.find((prod) => prod.id === parseInt(id)));
+            } else {
+                reject("Error");
+            }
+        }, 1500)
     })
 }
-export default sendCart;

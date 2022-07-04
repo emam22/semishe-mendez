@@ -4,12 +4,13 @@ import '../Products/products.json';
 
 
 
-export const ItemCount = ({initial, stock, onAdd, counter}) => {
+export const ItemCount = ({initial, stock, }) => {
     const [count, setCount] = useState(initial);
         const decrease = () => {
             setCount(count - 1);}
         const increase = () => {
             setCount(count + 1);}
+    
     return (
         <>
         <div className="counter">
@@ -17,7 +18,7 @@ export const ItemCount = ({initial, stock, onAdd, counter}) => {
             <span className='num'>{count}</span>
             <button className='num' disabled={count >= stock} onClick={increase}>+</button>
             <div>
-                <button className='add' disabled={stock <= 0} onClick={()=> onAdd(count)}>Agregar al carrito</button>
+                <button className='add' disabled={stock <= 0}>Agregar al carrito</button>
             </div>
         </div>
         </>

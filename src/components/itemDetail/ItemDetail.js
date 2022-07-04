@@ -5,15 +5,10 @@ import {Link} from 'react-router-dom';
 import { CartContext } from '../Context/CartContext';
 
 
-function ItemDetail ({id, title, price, image, description, stock,}) {
+function ItemDetail ({id, title, price, image, description, stock, setCount}) {
     const {addCart} = useContext(CartContext);
     const [addsCart, setAddsCart] = useState();
-    const [counter, setCounter] = useState(0);
-    const onAdd = ( item, quantity) => {   console.log(item);
-            addCart({id, title, price, stock, image, quantity})
-            setAddsCart({id,quantity})
-           
-        
+    const onAdd = () => {console.log(addsCart);
 }       
     return (
         <div key={id} className="cardFlex">
@@ -21,13 +16,14 @@ function ItemDetail ({id, title, price, image, description, stock,}) {
             <p className="price"> -  ${price}  -</p>
             <p className="description"> {description} </p>
             {
-                !addsCart
-                ? <ItemCount className="itemCount" 
-                counter={counter}
-                setCounter={setCounter} 
-                initial={0}  stock={stock} onAdd={onAdd} />
-                : <Link to="/cart" className='add-end'><h3>Terminar Compra</h3></Link>
-                
+            !setAddsCart
+                ?  <>                    
+                    <Link onClick={() => addCart(id, title, price, image, description, stock, setCount)} to="/cart" className='add-end'>
+                    <button className='add-end'>Terminar Compra</button>
+                    </Link>
+                    <p className='quantity'> Has elegido {setCount} unidades de semillas</p>
+                    </>
+                :<ItemCount className="itemCount" initial={0}  stock={stock} onClick={()=> onAdd}/>  
             }
         </div>       
         )

@@ -7,6 +7,16 @@
     }    
     .description {
         font-size: 0.55cm;
+    }
+    .quantity {
+        font-size: 0.55cm;
+        grid-column-start: 3;
+        grid-column-end: 5;
+        grid-row-start: -2;
+        grid-row-end: -1;
+        text-align: center;
+        color: greenyellow;
+
     }    
     .cardFlex {
         float: left;
