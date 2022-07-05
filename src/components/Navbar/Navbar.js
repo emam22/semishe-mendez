@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
 import './Navbar.css';
 import { Link } from 'react-router-dom';
-
+import { CartContext } from "../Context/CartContext";
    
 
 export const Navbar = (props) => {
     const {children} = props;
+    const { cartItems } = useContext(CartContext);
+    const [cantProductsInCart, setCantProductos] = useState(0);
+
+    useEffect(() => {
+        setCantProductos(cartItems.length);
+    }, [cartItems])
 
     return (
     <>
@@ -18,7 +24,7 @@ export const Navbar = (props) => {
                 <Link className="link" to={`/category/mix`}> Semillas MixAuto </Link>
                 <div> 
                     <Link className="nav-link" to={`/cart`}> {children} </Link>
-                    <h4 className="display">0</h4>               
+                    <h4 className="display">{cantProductsInCart}</h4>               
                 </div>                      
             </nav>            
         </div>                
