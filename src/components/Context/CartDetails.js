@@ -3,10 +3,10 @@ import { CartContext } from './CartContext';
 import portal from '../Error/img24.png';
 import { Link } from 'react-router-dom';
 
-export const CartDetails = ({id, price, count}) => {
+export const CartDetails = ({id, price, }) => {
     
     const {cartItems, vaciarCarrito, removerDelCarrito} = useContext(CartContext);
-    const totalprice = parseFloat(price * count);   
+       
 
     return (  
     <section className="order-list">       
@@ -16,6 +16,7 @@ export const CartDetails = ({id, price, count}) => {
                 <h5 className="unidades"> Unidades</h5>
                 <h5 className="unprice"> Precio por unidad</h5>
                 <h5 className="untotalprice"> Total a pagar</h5>
+                <h5 className="untotalprices"> </h5>
         </div>       
         {
             cartItems
@@ -24,9 +25,9 @@ export const CartDetails = ({id, price, count}) => {
                             <div key={item.id} className="order-item">
                                     <img className="image" src={item.image} alt={item.title} />
                                     <p className="title">{item.title}.</p>
-                                    <p className="unidades">{item.count}</p>
+                                    <p className="unidades">{item.quantity}</p>
                                     <p className="unprice"> ${item.price} </p>
-                                    <p className="untotalprice"> ${totalprice} </p>
+                                    <p className="untotalprice"> ${item.quantity*item.price} </p>
                                     <button className="btn420" onClick={()=>{removerDelCarrito(item.id)}}>remove</button>
                             </div>
                             <div className="finished">            
