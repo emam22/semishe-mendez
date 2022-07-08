@@ -20,7 +20,7 @@ export const AppRouting = () => {
                 <Routes>
                     <Route path='/' element={<ItemListContainer/>}/>
                     <Route path='/category/:categoryId' element={<ItemListContainer/>}/>
-                    <Route path='/item/:id' element={<ItemDetailContainer/>}/>
+                    <Route path='/item/:title' element={<ItemDetailContainer/>}/>
                     <Route path='/nosotros' element={<Nosotros/>}/>
                     <Route path='/*' element={<Error/>}/>
                     <Route path='/item/undefined' element={<Error/>}/>

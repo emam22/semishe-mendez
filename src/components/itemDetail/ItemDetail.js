@@ -4,13 +4,14 @@ import ItemCount from '../itemCount';
 import {Link} from 'react-router-dom';
 import { CartContext } from '../Context/CartContext';
 
+
 function ItemDetail ({id, title, price, image, description, stock, count, productInCart}) {
-    const { addCart, cartItems } = useContext(CartContext);
-    const [hasProduct, setHasProduct] = useState();
+    const { addCart, carrito } = useContext(CartContext);
+    const [hasProduct, setHasProduct] = useState(false);
     
     useEffect(() => {
         setHasProduct(hasProductInCart());
-    }, [cartItems])
+    }, [carrito])
 
     const getStock = (count) => {
         const quantity = count;
@@ -18,25 +19,25 @@ function ItemDetail ({id, title, price, image, description, stock, count, produc
     }
     
     const hasProductInCart = () => {
-        const hasProduct = cartItems.find(item => item.id === id);
+        const hasProduct = carrito.find(item => item.id === id);
 
-        if(hasProduct) return count >= 1;
-        return count <=0;
+        if(hasProduct) return true;
+        return false;
     }
 
     return (
-        <div key={id} className="cardFlex">
+        <div key={title} className="cardFlex">
             <img src={image} alt={title}/>
             <p className="price"> -  ${price}  -</p>
             <p className="description"> {description} </p>
             {
             !hasProduct
                 ? <ItemCount className="itemCount" initial={0} stock={stock} getStock={getStock} onClick={() => addCart({id, title, price, image, description, stock, count})}/>    
-                : <>                    
+                :   <>                    
                         <Link to="/cart" className='add-end'>
                             <button className='add-end'>Terminar Compra</button>
                         </Link>
-                  </>
+                    </>
             }
         </div>       
         )

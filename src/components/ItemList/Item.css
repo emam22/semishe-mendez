@@ -67,6 +67,7 @@ button {
     font-size: 0.9cm;
     width: 100%;
     cursor: pointer;
+    text-decoration: none;
 }
 .counter {
     background-color: rgba(139, 195, 27, 0.711);

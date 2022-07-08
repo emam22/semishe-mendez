@@ -1,34 +1,46 @@
-import React from 'react';
-import {useEffect} from 'react';
-import {useState} from 'react';
-import customFetch from '../Products/customFetch';
-import products from '../Products/products';
-import ItemList from '../ItemList/ItemList';
+import  {React, useEffect, useState } from 'react';
 import portal from '../Error/img24.png';
 import { useParams } from 'react-router-dom';
-import { useSemillas } from '../../firebase/useSemillas';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '../../firebase/firebaseConfig';
+import ItemList from './ItemList';
 
 function ItemListContainer() {
-        const [items, setItems] = useState([]);
-        const {categoryId} = useParams();
+    const [dataSemis, setDataSemis] = useState([]);
+    const [error, setError] = useState();
+    const [loading, setLoading] = useState(true);
+    const {categoryId } = useParams()
 
-        useEffect(() => {
-            if (categoryId) {
-                useSemillas( categoryId)
-                    .then((res) => setItems(res))
-                    .catch((err) => console.log(err, "Producto no encontrado"));
-            }else {
-                customFetch(1500, products)
-                    .then(resultado => setItems(resultado))
-            }           
-        }, [categoryId]);
+    useEffect(() => {
         
+        if(!categoryId) {
+            const semisheCollection = collection(db, "Semillas")
+            const getData = getDocs(semisheCollection)
+
+            getData
+                .then(respuesta => setDataSemis(respuesta.docs.map(doc=>doc.data())))
+                .catch(error => setError("Error al obtener los productos"))
+                .finally(() => setLoading(false))
+            
+        }else{
+            const semisheCollection = collection(db, "Semillas")
+            const miFiltro = query(semisheCollection,where("category","==",(categoryId)))
+            const getData = getDocs(miFiltro)
+        
+            getData
+                .then(respuesta => setDataSemis(respuesta.docs.map(doc=>doc.data())))   
+                .catch(error => setError("Error al obtener los productos"))
+                .finally(() => setLoading(false))
+        }
+
+    }, [categoryId])
+
     return (
     <section className='container'> 
                 {
-                    items.length 
-                        ? <ItemList products={items}/> 
-                        : <img className="img-portall" src={portal} alt="portall" />
+                    loading
+                    ? <img className="img-portall" src={portal} alt="portall" />
+                    : <ItemList dataSemis={dataSemis}/> 
                 }
     </section>
         )

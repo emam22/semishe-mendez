@@ -1,6 +1,5 @@
 import './itemCount.css';
 import React, { useState, } from 'react';
-import '../Products/products.json';
 
 
 

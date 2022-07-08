@@ -8,7 +8,7 @@ import { MdOutlinePayment, MdOutlineQrCode2 } from "react-icons/md";
 
 export const CartDetails = () => {
     
-    const {cartItems, vaciarCarrito, removerDelCarrito} = useContext(CartContext);
+    const {carrito, vaciarCarrito, borrarProducto, total} = useContext(CartContext);
        
 
     return (
@@ -21,15 +21,15 @@ export const CartDetails = () => {
                     <h5 className="untotalprice"> Total a pagar</h5>
             </div>     
             {
-                cartItems
-                    ?   cartItems.map(item => (
+                carrito
+                    ?   carrito.map(item => (
                             <div key={item.id} className="order-item">
                                     <img className="image" src={item.image} alt={item.title} />
                                     <p className="title">{item.title}.</p>
                                     <p className="unidades">{item.quantity}</p>
                                     <p className="unprice"> ${item.price} </p>
-                                    <p className="untotalprice"> ${item.quantity*item.price} </p>
-                                    <button className="btn420" onClick={()=>{removerDelCarrito(item.id)}}><RiDeleteBin6Line/></button>
+                                    <p className="untotalprice"> ${total} </p>
+                                    <button className="btn420" onClick={()=>{borrarProducto(item.id)}}><RiDeleteBin6Line/></button>
                             </div>
                         ))      
                     :   <>
