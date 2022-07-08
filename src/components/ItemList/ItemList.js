@@ -1,23 +1,20 @@
 import React from 'react';
+import { useSemillas } from '../../firebase/useSemillas';
 import Item from './Item';
 
 
-function ItemList ({products}) {
+function ItemList () {
+    const { dataSemi } = useSemillas();
     return (
-        products.map(p =>
+    <>
+        {
+        dataSemi.map(item => (
             <Item
-            key={p.id}
-            {...p}
-            title={p.title}
-            image={p.image}
-            price={p.price}
-            describe={p.describe}
-            stock={p.stock}
-            description={p.description}
-            category={p.category}
-            {...p}
+            {...item}
             />
-            )
+        ))
+        }
+    </>
     )
 }
 export default ItemList;

@@ -1,19 +1,28 @@
 import React from "react";
 import './Item.css';
 import { Link } from 'react-router-dom';
+import { useSemillas } from '../../firebase/useSemillas';
 
 
 
 
-function Item ( {title, price, image, describe, id} ) {
+function Item ( ) {
+    const { dataSemi } = useSemillas();
+
     return (
-        <div className="card">
-             <img src={image} alt={title}/>
-             <h1>{title}.</h1>
-             <p className="price"> -  ${price}  -</p>
-             <p className="describe"> {describe} </p>
-             <Link to={`/item/${id}`}><button  className="counter">Realizar Compra</button></Link>
-        </div>
-        )
+    <>
+        {
+            dataSemi.map(item => (
+                <div className="card">
+                    <img src={item.image} alt={item.title}/>
+                    <h1>{item.title}.</h1>
+                    <p className="price"> -  ${item.price}  -</p>
+                    <p className="describe"> {item.describe} </p>
+                    <Link to={`/item/${item.id}`}><button  className="counter">Realizar Compra</button></Link>
+                </div> 
+        ))
+        }
+    </>
+    )
 }
 export default Item;

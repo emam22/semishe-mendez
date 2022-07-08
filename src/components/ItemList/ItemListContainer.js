@@ -5,9 +5,8 @@ import customFetch from '../Products/customFetch';
 import products from '../Products/products';
 import ItemList from '../ItemList/ItemList';
 import portal from '../Error/img24.png';
-import productsjson from '../Products/products.json'; 
-import callProductsCategory from '../Products/newpromise';
 import { useParams } from 'react-router-dom';
+import { useSemillas } from '../../firebase/useSemillas';
 
 function ItemListContainer() {
         const [items, setItems] = useState([]);
@@ -15,7 +14,7 @@ function ItemListContainer() {
 
         useEffect(() => {
             if (categoryId) {
-                callProductsCategory(productsjson, categoryId)
+                useSemillas( categoryId)
                     .then((res) => setItems(res))
                     .catch((err) => console.log(err, "Producto no encontrado"));
             }else {

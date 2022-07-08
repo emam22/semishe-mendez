@@ -4,10 +4,9 @@ import ItemCount from '../itemCount';
 import {Link} from 'react-router-dom';
 import { CartContext } from '../Context/CartContext';
 
-
 function ItemDetail ({id, title, price, image, description, stock, count, productInCart}) {
     const { addCart, cartItems } = useContext(CartContext);
-    const [hasProduct, setHasProduct] = useState(false);
+    const [hasProduct, setHasProduct] = useState();
     
     useEffect(() => {
         setHasProduct(hasProductInCart());
@@ -21,8 +20,8 @@ function ItemDetail ({id, title, price, image, description, stock, count, produc
     const hasProductInCart = () => {
         const hasProduct = cartItems.find(item => item.id === id);
 
-        if(hasProduct) return true;
-        return false;
+        if(hasProduct) return count >= 1;
+        return count <=0;
     }
 
     return (
@@ -33,12 +32,11 @@ function ItemDetail ({id, title, price, image, description, stock, count, produc
             {
             !hasProduct
                 ? <ItemCount className="itemCount" initial={0} stock={stock} getStock={getStock} onClick={() => addCart({id, title, price, image, description, stock, count})}/>    
-                :<>                    
-                <Link to="/cart" className='add-end'>
-                <button className='add-end'>Terminar Compra</button>
-                </Link>
-                <p className='quantity'> Has elegido {count} unidades de semillas</p>
-            </>
+                : <>                    
+                        <Link to="/cart" className='add-end'>
+                            <button className='add-end'>Terminar Compra</button>
+                        </Link>
+                  </>
             }
         </div>       
         )
