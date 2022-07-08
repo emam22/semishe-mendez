@@ -9,7 +9,10 @@ import { MdOutlinePayment, MdOutlineQrCode2 } from "react-icons/md";
 export const CartDetails = () => {
     
     const {carrito, vaciarCarrito, borrarProducto, total} = useContext(CartContext);
-       
+    const handleClick = () => {        
+        console.log('COMPRA FUE EXITOSA')
+        alert('COMPRA FUE EXITOSA');
+    }
 
     return (
     <>
@@ -23,13 +26,13 @@ export const CartDetails = () => {
             {
                 carrito
                     ?   carrito.map(item => (
-                            <div key={item.id} className="order-item">
-                                    <img className="image" src={item.image} alt={item.title} />
+                            <div key={item.nanoId} className="order-item">
+                                    <img className="image" src={item.URLimage} alt={item.title} />
                                     <p className="title">{item.title}.</p>
-                                    <p className="unidades">{item.quantity}</p>
+                                    <p className="unidades">{item.seleccionado}</p>
                                     <p className="unprice"> ${item.price} </p>
-                                    <p className="untotalprice"> ${total} </p>
-                                    <button className="btn420" onClick={()=>{borrarProducto(item.id)}}><RiDeleteBin6Line/></button>
+                                    <p className="untotalprice"> ${item.price * item.seleccionado} </p>
+                                    <button className="btn420" onClick={()=>{borrarProducto(item.nanoId)}}><RiDeleteBin6Line/></button>
                             </div>
                         ))      
                     :   <>
@@ -41,7 +44,8 @@ export const CartDetails = () => {
         </section>
         <section className="finished">            
             <button className="empty" onClick={vaciarCarrito}><BsCartX/></button>
-            <button className="btn420, send"><MdOutlinePayment/><BsCashCoin/><BsCurrencyBitcoin/><MdOutlineQrCode2/></button>
+            <p>Total : ${total}</p>
+            <button className="btn420, send" onClick={handleClick}><MdOutlinePayment/><BsCashCoin/><BsCurrencyBitcoin/><MdOutlineQrCode2/></button>
         </section>
     </>
     )

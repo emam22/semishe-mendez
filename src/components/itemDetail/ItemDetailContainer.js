@@ -1,51 +1,73 @@
-import React, { useEffect, useState } from 'react';
-import ItemDetail from './ItemDetail.js';
+import React, { useContext, useEffect, useState } from 'react';
 import portal from '../Error/img24.png';
-import { collection, doc, getDocs, query, where } from 'firebase/firestore';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../../firebase/firebaseConfig.js';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { CartContext } from '../Context/CartContext.js';
+import ItemCount from '../itemCount/index.jsx';
+import './ItemDetail.css';
 
 
-function ItemDetailContainer() {
-    const [dataSemis, setDataSemis] = useState([]);
+function ItemDetailContainer(...prod) {
+
+    const [dataSemis, setDataSemis] = useState({});
     const [error, setError] = useState();
-    const [loading, setLoading] = useState(false);
-    const { id } = useParams()
+    const [loading, setLoading] = useState(true);
+    const { addCart } = useContext(CartContext);
+    const { nanoId } = useParams()
+    const [seleccionado, setSeleccionado] = useState(undefined);
 
     useEffect(() => {
-        
-        if(!id) {
-        const semisheCollection = collection(db, "Semillas")
-        const getData = getDocs(semisheCollection)
 
-        getData
-            .then(respuesta => setDataSemis(respuesta.docs.map(doc=>doc.data())))
-            .catch(error => setError("Error al obtener los productos"))
-            .finally(() => setLoading(false))
-        
-        }else{
         const semisheCollection = collection(db, "Semillas")
-        const miFiltro = query(semisheCollection,where("id","==",(id)))
-        const getData = getDocs(miFiltro)
-     
+        const miFiltro = query(semisheCollection,where("nanoId","==",(nanoId)))
+        const getData = getDocs(miFiltro)     
         getData
             .then(respuesta => setDataSemis(respuesta.docs.map(doc=>doc.data())))   
-            .catch(error => setError("Error al obtener los productos"))
-            .finally(() => {console.log(error);setLoading(false)})
+            .catch((error) => setError("Error al obtener los productos"))
+            .finally(() => setLoading(false))
+    }, [nanoId])
+
+    const onAdd = (unidadSeleccionada) => {
+        if (unidadSeleccionada !== undefined) {
+          setSeleccionado(unidadSeleccionada)
         }
-
-    }, [id])
-
-    return (
-    <section className='container1'> 
-            {
-                dataSemis
-                ? <ItemDetail {...doc}/> 
-                : <img className="img-portall" src={portal} alt={loading} />
-            }
-    </section>
-        )
+        console.log(seleccionado)
+      }
+    
+    const handleClick = (e) => {
+        e.preventDefault()
+        console.log("Click del Link/Boton")
+        addCart(dataSemis,seleccionado)
     }
+
+if (loading) {  return<img className="img-portall" src={portal} alt={error} />
+} else{
+    return ( 
+    <>
+        {           
+        dataSemis.map((item) => (  
+            <section className='container1'>
+                <div key={prod.nanoId} className="cardFlex">
+                    <img src={item.URLimage} alt={item.title}/>
+                    <p className="price"> -  ${item.price}  -</p>
+                    <p className="description"> {item.description} </p>
+                    <ItemCount className="itemCount" initial={1} stock={item.stock} onAdd={onAdd} /> 
+                    {
+                    seleccionado
+                        ? <><Link to="/cart" className='add-end' onClick={handleClick}>
+                                <button className='add-end'>Terminar Compra</button>
+                        </Link></>   
+                        : null 
+                    }
+                </div>                
+            </section>
+            ))
+        }
+    </>
+    )
+}
+}      
 
 
 export default ItemDetailContainer;

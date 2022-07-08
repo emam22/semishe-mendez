@@ -8,19 +8,17 @@ export const CartProvider = ({children}) => {
     const [total,setTotal] = useState(0)
     const [cantidadActual,setCantidadActual] = useState(0)
 
-    const addCart = (item,cantidad) => {
-        setCarrito([...carrito,{...item,cantidad}])
-        setTotal(total + item.precio * cantidad)
-        setCantidadActual(cantidadActual + cantidad)
+    const addCart = (item,seleccionado) => {
+        setCarrito([...carrito,{...item,seleccionado}])
+        setTotal(total + item.precio * seleccionado)
+        setCantidadActual(cantidadActual + seleccionado)
         console.log("Funciona")
     }
 
     const borrarProducto = id => {
         console.log("Borrando desde el provider",id)
         console.log(id)
-        setCarrito(
-            carrito.filter(item => item.id !== id)
-        )
+        
     }
 
     const vaciarCarrito=()=>{
@@ -28,7 +26,7 @@ export const CartProvider = ({children}) => {
     }
 
     const valorDelProvider = {
-        carrito ,
+        carrito,
         borrarProducto,
         addCart,
         total,
