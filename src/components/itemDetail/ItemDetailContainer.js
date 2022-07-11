@@ -8,14 +8,14 @@ import ItemCount from '../itemCount/index.jsx';
 import './ItemDetail.css';
 
 
-function ItemDetailContainer(...prod) {
+function ItemDetailContainer() {
 
-    const [dataSemis, setDataSemis] = useState({});
+    const [dataSemis, setDataSemis] = useState([]);
     const [error, setError] = useState();
     const [loading, setLoading] = useState(true);
-    const { addCart } = useContext(CartContext);
+    const { addCart, carrito } = useContext(CartContext);
     const { nanoId } = useParams()
-    const [seleccionado, setSeleccionado] = useState(undefined);
+    const [seleccionado, setSeleccionado] = useState(false);
 
     useEffect(() => {
 
@@ -30,15 +30,17 @@ function ItemDetailContainer(...prod) {
 
     const onAdd = (unidadSeleccionada) => {
         if (unidadSeleccionada !== undefined) {
-          setSeleccionado(unidadSeleccionada)
+          setSeleccionado()
         }
-        console.log(seleccionado)
+        console.log(unidadSeleccionada)
       }
     
-    const handleClick = (e) => {
-        e.preventDefault()
-        console.log("Click del Link/Boton")
-        addCart(dataSemis,seleccionado)
+    const handleEnd = (e) => {      
+            e.preventDefault()
+            addCart(dataSemis,seleccionado)
+            
+            
+            console.log("Click del Link/Boton")
     }
 
 if (loading) {  return<img className="img-portall" src={portal} alt={error} />
@@ -47,15 +49,15 @@ if (loading) {  return<img className="img-portall" src={portal} alt={error} />
     <>
         {           
         dataSemis.map((item) => (  
-            <section className='container1'>
-                <div key={prod.nanoId} className="cardFlex">
+            <section key={item.nanoId} className='container1'>
+                <div className="cardFlex">
                     <img src={item.URLimage} alt={item.title}/>
                     <p className="price"> -  ${item.price}  -</p>
                     <p className="description"> {item.description} </p>
-                    <ItemCount className="itemCount" initial={1} stock={item.stock} onAdd={onAdd} /> 
+                    <ItemCount className="itemCount" initial={1} stock={item.stock} onAdd={onAdd} onClick={() => handleEnd({addCart, dataSemis, seleccionado})}/> 
                     {
-                    seleccionado
-                        ? <><Link to="/cart" className='add-end' onClick={handleClick}>
+                    !seleccionado
+                        ? <><Link to="/cart" className='add-end' >
                                 <button className='add-end'>Terminar Compra</button>
                         </Link></>   
                         : null 

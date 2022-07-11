@@ -5,14 +5,32 @@ import { Link } from 'react-router-dom';
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { BsCartX, BsCashCoin, BsCurrencyBitcoin } from "react-icons/bs";
 import { MdOutlinePayment, MdOutlineQrCode2 } from "react-icons/md";
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
+import { db } from '../../firebase/firebaseConfig';
 
-export const CartDetails = () => {
+export const CartDetails = (...dataSemis) => {
     
     const {carrito, vaciarCarrito, borrarProducto, total} = useContext(CartContext);
-    const handleClick = () => {        
-        console.log('COMPRA FUE EXITOSA')
-        alert('COMPRA FUE EXITOSA');
+    const handleClick = () => { 
+        const orden = {
+            buyer : {
+                nombre : "Berlin",
+                telefono : "4545454545",
+                email : "berlin@gmail.com"
+            },
+            items : carrito,
+            date : serverTimestamp(),
+            total : total            
+        }    
+        const ordenesCollection = collection(db, "ordenes")
+        const pedido = addDoc(ordenesCollection,orden)
+
+        pedido
+        .then(res=>{
+            console.log(res.id)
+        })
     }
+    
 
     return (
     <>
@@ -25,14 +43,14 @@ export const CartDetails = () => {
             </div>     
             {
                 carrito
-                    ?   carrito.map(item => (
-                            <div key={item.nanoId} className="order-item">
-                                    <img className="image" src={item.URLimage} alt={item.title} />
-                                    <p className="title">{item.title}.</p>
-                                    <p className="unidades">{item.seleccionado}</p>
-                                    <p className="unprice"> ${item.price} </p>
-                                    <p className="untotalprice"> ${item.price * item.seleccionado} </p>
-                                    <button className="btn420" onClick={()=>{borrarProducto(item.nanoId)}}><RiDeleteBin6Line/></button>
+                    ?   carrito.map(cart => (
+                            <div key={cart.nanoId} className="order-item">
+                                    <img className="image" src={cart.URLimage} alt={cart.title} />
+                                    <p className="title">{cart.title}.</p>
+                                    <p className="unidades">{cart.seleccionado}</p>
+                                    <p className="unprice"> ${cart.price} </p>
+                                    <p className="untotalprice"> ${cart.price * cart.seleccionado} </p>
+                                    <button className="btn420" onClick={()=>{borrarProducto(cart.nanoId)}}><RiDeleteBin6Line/></button>
                             </div>
                         ))      
                     :   <>

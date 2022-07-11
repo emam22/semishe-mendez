@@ -76,6 +76,9 @@ button {
     font-size: 0.6cm;
     text-decoration: none; 
 }
+a {
+    text-decoration: none;
+}
 
 .img-portall {
     display: grid;
