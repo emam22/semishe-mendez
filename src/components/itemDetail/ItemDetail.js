@@ -17,9 +17,8 @@ function ItemDetail ({ prod }) {
     const handleEnd = () => {                        
         addCart(...prod, seleccionado,cartItems)
         console.log(addCart, "Click del Link/Boton")
-    }
         console.log(cartItems)
-
+    }
     return ( 
         <>
             {
