@@ -1,51 +1,34 @@
-import { createContext, useEffect, useState } from  "react";
-import './CartContext.css';
+import { createContext, useState } from  "react";
 
 export const CartContext = createContext();
 
 export const CartProvider = ({children}) => {
-    const [carrito,setCarrito] = useState([]); 
+    const [cartItems, setCartItems] = useState(["No hay productos"]);
     const [total,setTotal] = useState(0)
-    const [cantidadActual,setCantidadActual] = useState(0);
-
-    useEffect(()=> {   
-        localStorage.setItem('cartProducts', JSON.stringify(carrito));
-        }, [carrito]);
+    const [cantidadActual,setCantidadActual] = useState(0)
     
-
     const addCart = (item,seleccionado) => {
-        setCarrito([...carrito,{...item,seleccionado}])
+        const changedCart = [
+            ...cartItems,
+            {...item,seleccionado},
+        ]
+        setCartItems(changedCart);
         setTotal(total + item.precio * seleccionado)
         setCantidadActual(cantidadActual + seleccionado)
         console.log("Funciona")
-
-        const inCart = carrito.find(
-                (productInCart) => productInCart.id === item.nanoId
-            );
-            if (inCart) {
-                setCarrito(
-                    carrito.map((productInCart) => {
-                        if(productInCart.id === item.nanoId){
-                            return {...inCart, stock:inCart.stock + 1};
-                        } else return productInCart;
-                    })
-                )
-            } else {
-                setCarrito([...carrito, {...item}])
-            }}
-
-    const borrarProducto = idCart => {
-        setCarrito(
-            carrito.filter(item => item.id !== idCart)
-        )
     }
 
+    const borrarProducto = (idProduct) => {
+        setCartItems(
+            cartItems.filter(item => item.id !== idProduct)
+        )
+    }
     const vaciarCarrito=()=>{
-        setCarrito([])
+        setCartItems([])
     }
 
     const valorDelProvider = {
-        carrito,
+        cartItems,
         borrarProducto,
         addCart,
         total,
@@ -60,6 +43,3 @@ export const CartProvider = ({children}) => {
         </CartContext.Provider>
     )
 }
-
-
-

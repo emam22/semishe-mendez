@@ -6,12 +6,12 @@ import { CartContext } from "../Context/CartContext";
 
 export const Navbar = (props) => {
     const {children} = props;
-    const { carrito } = useContext(CartContext);
+    const { cartItems } = useContext(CartContext);
     const [cantProductsInCart, setCantProductos] = useState(0);
 
     useEffect(() => {
-        setCantProductos(carrito);
-    }, [carrito])
+        setCantProductos(cartItems);
+    }, [cartItems])
 
     return (
     <>
