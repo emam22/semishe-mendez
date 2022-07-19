@@ -5,20 +5,18 @@ import {Link} from 'react-router-dom';
 import { CartContext } from '../Context/CartContext';
 
 function ItemDetail ({ prod }) {
-    const { addCart, cartItems } = useContext(CartContext);
-    const [seleccionado, setSeleccionado] = useState();
+    const { addCart } = useContext(CartContext);
+    const [showCount, setShowCount] = useState(true);
+    const [seleccionado, setSeleccionado] = useState(1);
 
     const onAdd = (unidadSeleccionada) => {
-        if (unidadSeleccionada !== undefined) {
-            setSeleccionado(unidadSeleccionada)
-        }
-        console.log(unidadSeleccionada)
-    }    
-    const handleEnd = () => {                        
-        addCart(...prod, seleccionado,cartItems)
+        setShowCount(false);
+        setSeleccionado(unidadSeleccionada);
+        addCart(prod, seleccionado);
+
         console.log(addCart, "Click del Link/Boton")
-        console.log(cartItems)
-    }
+        console.log(unidadSeleccionada)
+    } 
     return ( 
         <>
             {
@@ -33,10 +31,10 @@ function ItemDetail ({ prod }) {
                                     initial={1} 
                                     stock={prod.stock}
                                     onAdd={onAdd}  
-                                    onClick={()=> {handleEnd(...prod,seleccionado,cartItems)}}                                    
-                                /> 
+                                                                      
+                                />
                             {
-                                seleccionado && 
+                                !showCount && 
                                     <Link to="/cart" className='add-end' >
                                         <button className='add-end'>Terminar Compra</button>
                                     </Link>

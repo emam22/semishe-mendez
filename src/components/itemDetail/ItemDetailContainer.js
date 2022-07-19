@@ -6,9 +6,7 @@ import { useParams } from 'react-router-dom';
 import './ItemDetail.css';
 import ItemDetail from './ItemDetail';
 
-
-function ItemDetailContainer() {
-    
+function ItemDetailContainer() {    
     const [dataSemis, setDataSemis] = useState([]);
     const [error, setError] = useState();
     const [loading, setLoading] = useState(true);
@@ -24,17 +22,15 @@ function ItemDetailContainer() {
             .finally(() => setLoading(false))
     }, [nanoId])
 
-    if (loading) {  return<img className="img-portall" src={portal} alt={error} />
-        } else{
+    if (loading) { return<img className="img-portall" src={portal} alt={error} />
+    } else{
     return ( 
-        <> 
+        <>
             <section className='container1'>
                 <ItemDetail prod={dataSemis[0]}/>           
             </section>
         </>
     )
+    }
 }
-}     
-
-
 export default ItemDetailContainer;

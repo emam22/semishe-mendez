@@ -1,18 +1,32 @@
-import { createContext, useState } from  "react";
+import { createContext, useEffect, useState } from  "react";
 
 export const CartContext = createContext();
 
 export const CartProvider = ({children}) => {
-    const [cartItems, setCartItems] = useState(["No hay productos"]);
+    const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("cart")) || []);
     const [total,setTotal] = useState(0)
     const [cantidadActual,setCantidadActual] = useState(0)
     
+    const isInCart = (nanoId) => {
+        return cartItems.some((item) => item.id === nanoId);
+    }
     const addCart = (item,seleccionado) => {
-        const changedCart = [
-            ...cartItems,
-            {...item,seleccionado},
-        ]
-        setCartItems(changedCart);
+        const newItem ={
+            ...item,
+            seleccionado,
+        };
+        if (isInCart(item.id)) {
+            let product = cartItems.find((item) => item.id === newItem.id);
+            product.seleccionado += newItem.seleccionado;
+            let newCart = cartItems.map((item) => {
+                if (item.id === newCart.id) {
+                  return product;
+                }
+                return item;
+        });        
+        setCartItems(newCart);
+        localStorage.setItem("cart", JSON.stringify(newCart));        
+    }
         setTotal(total + item.precio * seleccionado)
         setCantidadActual(cantidadActual + seleccionado)
         console.log("Funciona")
@@ -23,10 +37,15 @@ export const CartProvider = ({children}) => {
             cartItems.filter(item => item.id !== idProduct)
         )
     }
+
     const vaciarCarrito=()=>{
         setCartItems([])
     }
 
+    useEffect(() => {
+        localStorage.setItem("cart", JSON.stringify(cartItems));
+      }, [cartItems]);
+    
     const valorDelProvider = {
         cartItems,
         borrarProducto,
@@ -34,11 +53,9 @@ export const CartProvider = ({children}) => {
         total,
         vaciarCarrito
     }
-
     return (       
         <CartContext.Provider 
             value={{valorDelProvider}}>
-
                 {children}
         </CartContext.Provider>
     )
