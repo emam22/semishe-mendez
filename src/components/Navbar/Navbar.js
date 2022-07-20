@@ -10,7 +10,7 @@ export const Navbar = (props) => {
     const [cantProductsInCart, setCantProductos] = useState(0);
 
     useEffect(() => {
-        setCantProductos(cartItems);
+        setCantProductos(cartItems.length);
     }, [cartItems])
 
     return (

@@ -22,9 +22,10 @@ export const AppRouting = () => {
                     <Route path='/category/:categoryId' element={<ItemListContainer/>}/>
                     <Route path='/item/:nanoId' element={<ItemDetailContainer/>}/>
                     <Route path='/nosotros' element={<Nosotros/>}/>
-                    <Route path='/*' element={<Error/>}/>
-                    <Route path='/item/undefined' element={<Error/>}/>
                     <Route path='/cart' element={<CartDetails />}/>
+
+                    <Route path='/item/undefined' element={<Error/>}/>
+                    <Route path='*' element={<Error/>}/>
                 </Routes>        
             </BrowserRouter>
         </CartProvider>

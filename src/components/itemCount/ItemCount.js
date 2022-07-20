@@ -5,10 +5,13 @@ import React, { useState, } from 'react';
 
 export const ItemCount = ({ initial, onAdd, ...prod}) => {
     const [count, setCount] = useState(initial);
-        const decrease = () => {
-            setCount(count - 1);}
-        const increase = () => {
-            setCount(count + 1);}
+
+    const decrease = () => {
+        setCount(prevState => prevState - 1);
+    }
+    const increase = () => {
+        setCount(prevState => prevState + 1);
+    }
     const handleConfirm = () => {
         onAdd(count)
     }

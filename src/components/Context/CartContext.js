@@ -8,33 +8,43 @@ export const CartProvider = ({children}) => {
     const [cantidadActual,setCantidadActual] = useState(0)
     
     const isInCart = (nanoId) => {
-        return cartItems.some((item) => item.id === nanoId);
+        return cartItems.some((item) => item.nanoId === nanoId);
     }
-    const addCart = (item,seleccionado) => {
+
+    const addCart = (item, seleccionado) => {
+        let newCart;
+
         const newItem ={
             ...item,
             seleccionado,
         };
-        if (isInCart(item.id)) {
-            let product = cartItems.find((item) => item.id === newItem.id);
+
+        if (isInCart(newItem.nanoId)) {
+            let product = cartItems.find((item) => item.nanoId === newItem.nanoId);
+
             product.seleccionado += newItem.seleccionado;
-            let newCart = cartItems.map((item) => {
-                if (item.id === newCart.id) {
+
+            newCart = cartItems.map(item => {
+                if (item.nanoId === newItem.nanoId) {
                   return product;
                 }
+
                 return item;
-        });        
-        setCartItems(newCart);
-        localStorage.setItem("cart", JSON.stringify(newCart));        
-    }
-        setTotal(total + item.precio * seleccionado)
-        setCantidadActual(cantidadActual + seleccionado)
-        console.log("Funciona")
-    }
+            });
+
+            localStorage.setItem("cart", JSON.stringify(newCart));        
+            setTotal(total + item.precio * seleccionado)
+            setCantidadActual(cantidadActual + seleccionado)
+        } else {
+            if (seleccionado > 0) {
+                setCartItems((prevState) => [...prevState, newItem]);
+            }   
+        }
+    };
 
     const borrarProducto = (idProduct) => {
         setCartItems(
-            cartItems.filter(item => item.id !== idProduct)
+            cartItems.filter(item => item.nanoId !== idProduct)
         )
     }
 
@@ -47,15 +57,18 @@ export const CartProvider = ({children}) => {
       }, [cartItems]);
     
     const valorDelProvider = {
-        cartItems,
-        borrarProducto,
-        addCart,
-        total,
-        vaciarCarrito
+        
     }
+
     return (       
         <CartContext.Provider 
-            value={{valorDelProvider}}>
+            value={{
+                cartItems,
+                borrarProducto,
+                addCart,
+                total,
+                vaciarCarrito
+            }}>
                 {children}
         </CartContext.Provider>
     )

@@ -10,7 +10,7 @@ import { db } from '../../firebase/firebaseConfig';
 import { CartItemList } from './CartItemList';
 
 export const CartDetails = () => {    
-    const {cartItems, vaciarCarrito, total} = useContext(CartContext);
+    const { cartItems, total, vaciarCarrito}  = useContext(CartContext);
 
     const handleClick = () => { 
         const orden = {
@@ -30,14 +30,13 @@ export const CartDetails = () => {
             console.log(res.id)
         })
     }    
-    console.log(cartItems)
 
     return (
         <section className="order-list">     
                 {
-                    cartItems
+                    cartItems.length > 0
                         ?   <>
-                                <CartItemList/>
+                                <CartItemList />
                                 <section className="finished">            
                                     <button className="empty" onClick={vaciarCarrito}><BsCartX/></button>
                                         <p>Total : ${total}</p>

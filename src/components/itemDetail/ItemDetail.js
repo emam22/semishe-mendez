@@ -9,14 +9,15 @@ function ItemDetail ({ prod }) {
     const [showCount, setShowCount] = useState(true);
     const [seleccionado, setSeleccionado] = useState(1);
 
-    const onAdd = (unidadSeleccionada) => {
+    const onAdd = (quantity) => {
+        // console.log(quantity)
         setShowCount(false);
-        setSeleccionado(unidadSeleccionada);
-        addCart(prod, seleccionado);
-
-        console.log(addCart, "Click del Link/Boton")
-        console.log(unidadSeleccionada)
+        setSeleccionado(quantity);
+        addCart(prod, quantity);
+        //console.log(addCart, "Click del Link/Boton")
+        // console.log(quantity)
     } 
+    
     return ( 
         <>
             {
@@ -28,10 +29,9 @@ function ItemDetail ({ prod }) {
                                 <p className="description"> {prod.description} </p>
                                 <ItemCount 
                                     className="itemCount" 
-                                    initial={1} 
+                                    initial={seleccionado} 
                                     stock={prod.stock}
-                                    onAdd={onAdd}  
-                                                                      
+                                    onAdd={onAdd}                 
                                 />
                             {
                                 !showCount && 

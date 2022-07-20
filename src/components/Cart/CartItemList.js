@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { CartContext } from '../Context/CartContext';
 import Cart from './Cart'
 
-export const CartItemList = ({cartItems}) => {
+export const CartItemList = () => {
+  const { cartItems }  = useContext(CartContext);
+
   return (
-  <>
-    {
-    cartItems.map((cart) => {
-        return <Cart key={cart.nanoId} prod={cart}/>
-    })
-    }
-</>
+    <>
+      {
+          cartItems.length > 0 && cartItems.map((cart, key) => {
+              return <Cart key={key} prod={cart}/>
+          })
+      }
+    </>
   )
 }

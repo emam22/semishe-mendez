@@ -22,8 +22,8 @@ function ItemDetailContainer() {
             .finally(() => setLoading(false))
     }, [nanoId])
 
-    if (loading) { return<img className="img-portall" src={portal} alt={error} />
-    } else{
+    if (loading) return <img className="img-portall" src={portal} alt={error} />
+
     return ( 
         <>
             <section className='container1'>
@@ -31,6 +31,6 @@ function ItemDetailContainer() {
             </section>
         </>
     )
-    }
 }
+
 export default ItemDetailContainer;
