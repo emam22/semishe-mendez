@@ -4,7 +4,6 @@ export const CartContext = createContext();
 
 export const CartProvider = ({children}) => {
     const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("cart")) || []);
-    const [total,setTotal] = useState(0)
     const [cantidadActual,setCantidadActual] = useState(0)
     
     const isInCart = (nanoId) => {
@@ -15,7 +14,7 @@ export const CartProvider = ({children}) => {
     };
         
     const addCart = (item, seleccionado) => {
-        console.log(item.price, seleccionado, total);  
+        console.log(item.price, seleccionado);  
         let newCart;
 
         const newItem ={
@@ -67,7 +66,6 @@ export const CartProvider = ({children}) => {
                 cartItems,
                 borrarProducto,
                 addCart,
-                total,
                 vaciarCarrito,
                 totalPrice,
             }}>

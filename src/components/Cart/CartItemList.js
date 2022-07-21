@@ -7,11 +7,6 @@ export const CartItemList = () => {
 
   return (
     <>
-      <div className="ref">
-          <h5 className="title"> Producto</h5>
-          <h5 className="unidades"> Unidades</h5>
-          <h5 className="unprice"> Precio por unidad</h5>
-      </div> 
       {
           cartItems.length > 0 && cartItems.map((cart, key) => {
               return <Cart key={key} prod={cart}/>

@@ -36,9 +36,7 @@ footer p{
     color: rgb(54, 167, 71);
     text-align: center;
     float: right;
-    font-size: medium;
-    font-family: 'Courier New', Courier, monospace;
-    
+    font-size: medium;   
     height: auto;
 }
 .contenedor-footer h1 {

@@ -26,9 +26,7 @@ function ItemDetailContainer() {
 
     return ( 
         <>
-            <section className='container1'>
-                <ItemDetail prod={dataSemis[0]}/>           
-            </section>
+                <ItemDetail prod={dataSemis[0]}/>
         </>
     )
 }

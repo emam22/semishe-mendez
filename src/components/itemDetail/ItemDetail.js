@@ -23,7 +23,7 @@ function ItemDetail ({ prod }) {
         <>
             {
                 prod &&
-                   <section key={prod.nanoId} className='container1'>
+                   <main key={prod.nanoId} className='container1'>
                         <div className="cardFlex">
                             <img src={prod.URLimage} alt={prod.title}/>
                                 <p className="price"> -  ${prod.price}  -</p>
@@ -43,7 +43,7 @@ function ItemDetail ({ prod }) {
                                     </Link>
                             }
                         </div>                
-                    </section>
+                    </main>
             }
         </>
     )
