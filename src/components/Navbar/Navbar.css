@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 @media (min-width: 768px) {
     .contenedor, .header {
         display: flex;
@@ -5,7 +6,6 @@
         justify-content: space-between;
         align-items: center;
         margin: 0 auto;
-        width: auto;
         height: 150px;
     }
 }
@@ -21,6 +21,7 @@
     font-weight: 400;
     margin: 0;
     text-align: center;
+    font-family: 'Lobster', cursive;
 }
 .logo__bold {
     color: rgb(46, 146, 47);
@@ -53,23 +54,16 @@
     margin-left: 1em;
     margin-right: 1em;
 }
-.contenedor h2 {
-    color: azure;
-    text-align: center;
-}
 .contenedor h1 {
     font-size: 1.6cm;
     padding-left: 1%;
-}
-footer {
-    position: absolute;
-    background-color: rgb(72, 166, 135);
-    bottom: 0;
-    width: 100%;
 }
 .navegacion-principal div {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+}
+.display {
+    margin-right: 6px;
 }

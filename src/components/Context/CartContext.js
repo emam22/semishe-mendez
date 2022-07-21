@@ -5,23 +5,23 @@ export const CartContext = createContext();
 export const CartProvider = ({children}) => {
     const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("cart")) || []);
     const [total,setTotal] = useState(0)
-    const [itemTotal, setItemTotal] = useState(0);
     const [cantidadActual,setCantidadActual] = useState(0)
     
     const isInCart = (nanoId) => {
         return cartItems.some((item) => item.nanoId === nanoId);
     }
-    
-
+     const totalPrice = () => {
+        return cartItems.reduce((acc, item) => acc + item.price * item.seleccionado, 0);
+    };
+        
     const addCart = (item, seleccionado) => {
-        console.log(item.price, seleccionado, total,itemTotal);
+        console.log(item.price, seleccionado, total);  
         let newCart;
 
         const newItem ={
             ...item,
             seleccionado,
         };
-
         if (isInCart(newItem.nanoId)) {
             let product = cartItems.find((item) => item.nanoId === newItem.nanoId);
 
@@ -34,10 +34,10 @@ export const CartProvider = ({children}) => {
 
                 return item;
             });
+           
+     
+            setCantidadActual(cantidadActual + seleccionado) 
             localStorage.setItem("cart", JSON.stringify(newCart)); 
-            setItemTotal(item.price * seleccionado)       
-            setTotal(total + itemTotal)
-            setCantidadActual(cantidadActual + seleccionado)
         } else {
             if (seleccionado > 0) {
                 setCartItems((prevState) => [...prevState, newItem]);
@@ -68,7 +68,8 @@ export const CartProvider = ({children}) => {
                 borrarProducto,
                 addCart,
                 total,
-                vaciarCarrito
+                vaciarCarrito,
+                totalPrice,
             }}>
                 {children}
         </CartContext.Provider>

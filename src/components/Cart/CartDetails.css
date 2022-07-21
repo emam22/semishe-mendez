@@ -11,19 +11,18 @@
     .ref {
         height: 35px;
         width: auto;
-    }    
+    }
 }
-
 .order-list {
-    background-color: rgb(177, 177, 177); 
+    background-color: rgba(2, 255, 120, 0.294);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    margin: 2%;
+    padding: 2%;
     justify-content: space-around;
     
 }.order-item {
     display: flex;
     justify-content: space-evenly;
-    background-color: aliceblue;
+    background-color: rgba(39, 197, 113, 0.812);
     align-items: center;
     column-gap: 12%;    
 }
@@ -43,7 +42,7 @@
     margin-right: 0;
 }
 p {
-    color: rgb(14, 79, 3);
+    color: rgb(2, 5, 1);
 
 }
 .title {
@@ -70,7 +69,7 @@ h2 {
     padding-bottom: 10%;
 }
 h5 {
-    color: rgb(114, 232, 240);
+    color: rgb(2, 2, 1);
     font-size: 0.39cm;
     text-align: flex-end;
 }
@@ -80,31 +79,36 @@ h5 {
     width: 10%;
     font-size: .6cm;
     border: none;
-    color: black;
     border-radius: 15%;
 }
 .finished {
+    background-color: rgba(39, 197, 113, 0.812);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     display: flex;
     margin-top: 10px;
-    margin-left: 10%;
 
 }
+.finished p {
+    margin-left: 15%;
+    border-radius: 15%;
+    font-weight: 800;
+}
 .send {
-    background-color: rgb(110, 155, 42);
+    background-color: rgba(110, 155, 42, 0.713);
     border-radius: 2%;
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 15%;
+    margin-right: 10%;
     border: none;
     width: 22%;
 }
 .empty {
-    background-color: red;
+    background-color: rgba(255, 0, 0, 0.785);
     grid-column-start: 6;
     width: 100%;
     font-size: .6cm;
     border: none;
     color: black;
     border-radius: 15%;
-    margin-left: 20%;
+    margin-left: 15%;
     width: 12%;
 }

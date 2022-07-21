@@ -3,6 +3,7 @@ import './ItemDetail.css';
 import ItemCount from '../itemCount/ItemCount';
 import {Link} from 'react-router-dom';
 import { CartContext } from '../Context/CartContext';
+import logo from '../Navbar/logo192.png';
 
 function ItemDetail ({ prod }) {
     const { addCart } = useContext(CartContext);
@@ -35,8 +36,10 @@ function ItemDetail ({ prod }) {
                                 />
                             {
                                 !showCount && 
-                                    <Link to="/cart" className='add-end' >
-                                        <button className='add-end'>Terminar Compra</button>
+                                    <Link to="/cart" className='add-end' >                    
+                                        <img className="cart-widget" src={logo} alt="logo" />  
+                                        <p>Terminar Compra</p>
+                                        <img className="cart-widget" src={logo} alt="logo" />  
                                     </Link>
                             }
                         </div>                

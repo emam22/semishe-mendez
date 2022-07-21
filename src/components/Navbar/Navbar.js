@@ -14,7 +14,6 @@ export const Navbar = (props) => {
     }, [cartItems])
 
     return (
-    <>
     <header>
         <div className="contenedor contenido-header">
                 <Link className="link" to={`/`}><h1 className="logo__nombre">Semi<span className="logo__bold">SHE</span></h1></Link>
@@ -22,22 +21,17 @@ export const Navbar = (props) => {
                 <Link className="link" to={`/nosotros`}> Nosotros </Link>
                 <Link className="link" to={`/category/auto`}> Semillas Auto </Link>
                 <Link className="link" to={`/category/mix`}> Semillas MixAuto </Link>
-                <div> 
-                    <Link className="nav-link" to={`/cart`}> {children} </Link>
-                    <h4 className="display">{cantProductsInCart}</h4>               
-                </div>                      
+                {
+                    cantProductsInCart
+                    ?<div> 
+                        <Link className="nav-link" to={`/cart`}> {children} </Link>
+                        <h4 className="display">{cantProductsInCart}</h4>               
+                    </div>
+                    :null  
+                }                         
             </nav>            
         </div>                
-    </header>
-        {/* <Footer/>   */}
-    </>  
+    </header> 
     );
 };
-// const Footer = () => {
-//     return (
-//         <footer className="contenedor contenido-header">
-//             <h1 className="logo__nombre">Semi<span className="logo__bold">SHE</span></h1>
-//             <h2> Emanuel Mendez Dev © 2022.</h2>        
-//         </footer>         
-//     );
-// };
+

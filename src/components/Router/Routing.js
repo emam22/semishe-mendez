@@ -8,6 +8,7 @@ import { Error } from '../Error/Error';
 import Nosotros from '../Nosotros/Nosotros.js';
 import { CartProvider } from '../Context/CartContext';
 import { CartDetails } from '../Cart/CartDetails';
+import { Footer } from '../Footer/Footer';
 
 export const AppRouting = () => {
          
@@ -26,7 +27,8 @@ export const AppRouting = () => {
 
                     <Route path='/item/undefined' element={<Error/>}/>
                     <Route path='*' element={<Error/>}/>
-                </Routes>        
+                </Routes>
+                <Footer></Footer> 
             </BrowserRouter>
         </CartProvider>
     );
