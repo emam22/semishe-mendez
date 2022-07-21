@@ -14,8 +14,8 @@ function ItemDetail ({ prod }) {
         setShowCount(false);
         setSeleccionado(quantity);
         addCart(prod, quantity);
+        console.log(seleccionado);
         //console.log(addCart, "Click del Link/Boton")
-        // console.log(quantity)
     } 
     
     return ( 
@@ -29,7 +29,7 @@ function ItemDetail ({ prod }) {
                                 <p className="description"> {prod.description} </p>
                                 <ItemCount 
                                     className="itemCount" 
-                                    initial={seleccionado} 
+                                    initial={1} 
                                     stock={prod.stock}
                                     onAdd={onAdd}                 
                                 />

@@ -5,13 +5,16 @@ export const CartContext = createContext();
 export const CartProvider = ({children}) => {
     const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("cart")) || []);
     const [total,setTotal] = useState(0)
+    const [itemTotal, setItemTotal] = useState(0);
     const [cantidadActual,setCantidadActual] = useState(0)
     
     const isInCart = (nanoId) => {
         return cartItems.some((item) => item.nanoId === nanoId);
     }
+    
 
     const addCart = (item, seleccionado) => {
+        console.log(item.price, seleccionado, total,itemTotal);
         let newCart;
 
         const newItem ={
@@ -31,16 +34,18 @@ export const CartProvider = ({children}) => {
 
                 return item;
             });
-
-            localStorage.setItem("cart", JSON.stringify(newCart));        
-            setTotal(total + item.precio * seleccionado)
+            localStorage.setItem("cart", JSON.stringify(newCart)); 
+            setItemTotal(item.price * seleccionado)       
+            setTotal(total + itemTotal)
             setCantidadActual(cantidadActual + seleccionado)
         } else {
             if (seleccionado > 0) {
                 setCartItems((prevState) => [...prevState, newItem]);
             }   
         }
+
     };
+    
 
     const borrarProducto = (idProduct) => {
         setCartItems(
@@ -48,17 +53,13 @@ export const CartProvider = ({children}) => {
         )
     }
 
-    const vaciarCarrito=()=>{
+    const vaciarCarrito = ( ) => {
         setCartItems([])
     }
 
-    useEffect(() => {
+    useEffect( ( ) => {
         localStorage.setItem("cart", JSON.stringify(cartItems));
       }, [cartItems]);
-    
-    const valorDelProvider = {
-        
-    }
 
     return (       
         <CartContext.Provider 
