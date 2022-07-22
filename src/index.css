@@ -13,9 +13,16 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(34, 34, 34, 0.8);
-  
+  position: relative;
+  padding-bottom: 80px;
 }
-
+main{
+  min-height: calc(100vh - 150px - 110px);
+}
+footer{
+  position: absolute;
+  bottom: 0;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

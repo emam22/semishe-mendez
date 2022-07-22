@@ -1,10 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
+@media (min-width:100px){
+    .contenedor-footer {        
+    display: block; 
+    margin-top: 20px;   
+    }
+}
+@media (min-width:600px){
+.contenedor-footer {    
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+    padding: 2%;
+    margin-top: 0;
+}
+.h1 {
+    display: none;
+}
+    
+}
 footer {
     margin: 0;
     width: 100%;
-    height: 80px;
+    height: auto;
 }
 footer h2{
     padding-bottom: 0;
@@ -16,19 +35,7 @@ footer p{
     text-align: center;
     font-family: 'Edu VIC WA NT Beginner', cursive;   
 }
-@media (min-width: 768px) {
-    .contenedor, .header {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        margin: 0 auto;
-        height: 150px;
-    }
-}
- .contenedor-footer {
-    display: flex;
-    align-items: center;
+.contenedor-footer {
     background: #3a3927;
     box-shadow: 0 14px 28px 0 rgba(0, 0, 0, 0.22);
 }

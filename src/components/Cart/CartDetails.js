@@ -34,15 +34,14 @@ export const CartDetails = () => {
     }    
 
     return (
-        <section className="order-list">     
+        <main className="order-list">     
                 {
                     cartItems.length > 0
                         ?   <>
                                 <CartItemList />
                                 <section className="finished">            
                                     <button className="empty" onClick={vaciarCarrito}><BsCartX/></button>
-                                        <p>Total : {Currency(totalPrice())}</p>
-                                    <button className="btn420, send" onClick={handleClick}><MdOutlinePayment/><BsCashCoin/><BsCurrencyBitcoin/><MdOutlineQrCode2/></button>
+                                    <button className="btn420, send" onClick={handleClick}><MdOutlinePayment/><BsCashCoin/><BsCurrencyBitcoin/><MdOutlineQrCode2/></button>        <p>Total a Pagar: {Currency(totalPrice())}</p>
                                 </section>
                             </>      
                         :   <section className="order-empty">
@@ -51,6 +50,6 @@ export const CartDetails = () => {
                                 <Link to={`/`}><img className="img-portal" src={portal} alt="portal" /></Link>
                             </section>
                 }          
-        </section>
+        </main>
     )
 }
