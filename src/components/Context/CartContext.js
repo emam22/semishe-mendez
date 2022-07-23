@@ -14,7 +14,6 @@ export const CartProvider = ({children}) => {
     };
         
     const addCart = (item, seleccionado) => {
-        console.log(item.price, seleccionado);  
         let newCart;
 
         const newItem ={

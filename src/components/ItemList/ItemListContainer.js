@@ -7,9 +7,9 @@ import ItemList from './ItemList';
 
 function ItemListContainer() {
     const [dataSemis, setDataSemis] = useState([]);
-    const [error, setError] = useState();
+    const [error, setError] = useState(false);
     const [loading, setLoading] = useState(true);
-    const {categoryId } = useParams()
+    const {categoryId } = useParams();
 
     useEffect(() => {
         
@@ -29,10 +29,9 @@ function ItemListContainer() {
         
             getData
                 .then(respuesta => setDataSemis(respuesta.docs.map(doc=>doc.data())))   
-                .catch(error => setError("Error al obtener los productos"))
+                .catch(error => setError( "Error al obtener los productos"))
                 .finally(() => setLoading(false))
         }
-
     }, [categoryId])
 
     return (

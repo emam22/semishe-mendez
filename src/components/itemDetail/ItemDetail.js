@@ -4,29 +4,28 @@ import ItemCount from '../itemCount/ItemCount';
 import {Link} from 'react-router-dom';
 import { CartContext } from '../Context/CartContext';
 import logo from '../Navbar/logo192.png';
+import { Currency } from '../Products/FormatoDivisas';
 
 function ItemDetail ({ prod }) {
     const { addCart } = useContext(CartContext);
     const [showCount, setShowCount] = useState(true);
     const [seleccionado, setSeleccionado] = useState(1);
+    const productoPrice = () => prod.price;
 
     const onAdd = (quantity) => {
-        // console.log(quantity)
         setShowCount(false);
         setSeleccionado(quantity);
         addCart(prod, quantity);
-        console.log(seleccionado);
-        //console.log(addCart, "Click del Link/Boton")
-    } 
-    
+    }
+
     return ( 
         <>
             {
-                prod &&
+                seleccionado &&
                    <main key={prod.nanoId} className='container1'>
                         <div className="cardFlex">
                             <img src={prod.URLimage} alt={prod.title}/>
-                                <p className="price"> -  ${prod.price}  -</p>
+                                <p className="price"> - {Currency(productoPrice())} - </p>
                                 <p className="description"> {prod.description} </p>
                                 <ItemCount 
                                     className="itemCount" 

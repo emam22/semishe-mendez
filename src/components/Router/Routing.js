@@ -9,6 +9,7 @@ import Nosotros from '../Nosotros/Nosotros.js';
 import { CartProvider } from '../Context/CartContext';
 import { CartDetails } from '../Cart/CartDetails';
 import { Footer } from '../Footer/Footer';
+import { Form } from '../Form/Form';
 
 export const AppRouting = () => {
          
@@ -27,6 +28,7 @@ export const AppRouting = () => {
 
                     <Route path='/item/undefined' element={<Error/>}/>
                     <Route path='*' element={<Error/>}/>
+                    <Route path='/Form' element={<Form/>}/>
                 </Routes>
                 <Footer></Footer> 
             </BrowserRouter>

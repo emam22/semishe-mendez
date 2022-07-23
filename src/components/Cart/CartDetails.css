@@ -71,7 +71,7 @@ p {
     grid-column-start: 2;
 }
 .unidades {
-    width: 40px;
+    width: 140px;
     grid-column-start: 3;
 }
 .unprice{
@@ -98,6 +98,7 @@ h5 {
 }
 .btn420 {
     background-color: red;
+    color: black;
     grid-column-start: 6;
     width: 10%;
     font-size: .6cm;
@@ -114,18 +115,24 @@ h5 {
     width: 100%;
     border-radius: 12px;
     bottom: -80px;
+    max-height: 70px;
 }
 .finished p {
     font-weight: 800;
     text-align: center;
 }
+.finished .send {
+    width: auto;
+}
 .send {
+    color: black;
     background-color: rgba(107, 158, 31, 0.997);
     border-radius: 12px;
     border: none;
-    width: 22%;
+    height: 70px;
 }
 .empty {
+    color: black;
     background-color: rgba(255, 0, 0, 0.785);
     grid-column-start: 6;
     width: 100%;
