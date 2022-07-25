@@ -1,34 +1,61 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../Context/CartContext";
-import { validarForm } from "./validarForm";
 import { Navigate } from "react-router-dom";
 import { collection, Timestamp, getDocs, writeBatch, query, where, documentId, addDoc } from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig";
 import Swal from "sweetalert";
 import './Form.css';
 import rick12 from "./img87.jpg";
+import { Button } from "@mui/material";
+import TextField from '@mui/material/TextField';
+
+import validator from "validator";
+
 export const Form = () => {
 
-    const { cartItems, vaciarCarrito, totalPrice}  = useContext(CartContext);
+    const { cartItems, totalPrice, clearCart, cartCheckout}  = useContext(CartContext);
 
-    const [values, setValues] = useState({
-        nombre: '',
-        apellido: '',
-        email: ''
-    })
+    const [buyerName, setBuyerName] = useState("");
+    const [buyerEmail, setBuyerEmail] = useState("");
+    const [buyerEmailConf, setBuyerEmailConf] = useState("");
+    const [buyerPhone, setBuyerPhone] = useState("");
+    const [validName, setValidName] = useState(false);
+    const [validEmail, setValidEmail] = useState(false);
+    const [validEmailConf, setValidEmailConf] = useState(false);
+    const [validPhone, setValidPhone] = useState(false);
 
-    const handleInputChange = (e) =>{
-        setValues({
-            ...values,
-            [e.target.title]: e.target.value            
-        })
+    const handleNameChange = (e) => {
+        setBuyerName(e.target.value);
     }
+
+    const handleEmailChange = (e) => {
+        setBuyerEmail(e.target.value);
+    }
+
+    const handleEmailConfChange = (e) => {
+        setBuyerEmailConf(e.target.value);
+    }
+
+    const handlePhoneChange = (e) => {
+        setBuyerPhone(e.target.value);
+    }
+
+    useEffect(() => {
+        setValidName(validator.isAlpha(buyerName, "es-ES", { ignore: " " }));
+        setValidEmail(validator.isEmail(buyerEmail));
+        setValidEmailConf(validator.equals(buyerEmail, buyerEmailConf));
+        setValidPhone(validator.isNumeric(buyerPhone, "es-ES"));
+    }, [buyerName, buyerEmail, buyerEmailConf, buyerPhone]);
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        if(!validarForm(values)){return}
+
         const orden = {
-            buyer: {...values},
+            buyer: {
+                name: buyerName,
+                phone: buyerPhone,
+                email: buyerEmail
+            },
             items: cartItems,
             total: totalPrice(),
             date: Timestamp.fromDate(new Date())
@@ -38,6 +65,10 @@ export const Form = () => {
         const ordenesCollection = collection(db, "ordenes")
         const pedido = addDoc(ordenesCollection,orden)
         const q = query(pedido, where(documentId(), 'in', cartItems.map(ped => ped.id)))
+        pedido.then((res) => {
+            const pedidoId = res.id;
+            cartCheckout(pedidoId);
+        })
 
         const outOfStock = []
         const productos = await getDocs(q)
@@ -64,7 +95,6 @@ export const Form = () => {
                     title: 'Su orden ha sido registrada',
                     text: `Su numero de orden es ${res.id}`
                 })
-                vaciarCarrito()
             }) 
         }else{
             Swal.fire({
@@ -81,39 +111,23 @@ export const Form = () => {
             cartItems.length === 0
             ? <Navigate to="/"/>
             :
-            <main class="contenedor-form">
-                <h3 class="centrar-texto">Completa el formulario para realizar el pedido.</h3>
-        
-                <div class="contacto-bg"></div>
-                <hr/>
-                    <form class="formulario" onSubmit={handleSubmit}>                        
-                        <div class="campo">
-                        <img className="img-rick" src={rick12} alt="rick" />
-                            <input
-                                onChange={handleInputChange}
-                                className="campo__field"
-                                type="text" 
-                                placeholder="Tu Nombre" 
-                                value = {values.nombre}    
-                            />
-                            <input
-                                onChange={handleInputChange}
-                                className="campo__field"
-                                value = {values.apellido}
-                                placeholder="Tu Apellido"    
-                            />
-                            <input
-                                onChange={handleInputChange}
-                                className="campo__field"
-                                type="email" 
-                                placeholder="Tu E-mail" 
-                                name = "email"
-                                value = {values.email}
-                            />
-                            <button type="submit" className="send">Enviar</button>
-                        </div>
-                    </form>        
-            </main>
+            <>
+            <h2>Checkout Information:</h2>
+            <TextField className="formItems" error={buyerName !== "" && !validName} required variant="filled" label="Full Name" onChange={handleNameChange} value={buyerName} />
+            <TextField className="formItems" error={buyerPhone !== "" && !validPhone} required variant="filled" label="Phone Number" onChange={handlePhoneChange} value={buyerPhone} />
+            <TextField className="formItems" error={buyerEmail !== "" && !validEmail} required variant="filled" label="Email Address" onChange={handleEmailChange} value={buyerEmail} />
+            <TextField className="formItems" error={buyerEmailConf !== "" && !validEmailConf} required variant="filled" label="Confirm Email Address" onChange={handleEmailConfChange} value={buyerEmailConf} />
+            <div className="cartFooter dropShadow cart">
+                <div className="cartText">
+                    <h3>Cart Total: ${totalPrice}</h3>
+                    <h3>Total Products: {cartItems}</h3>
+                </div>
+                <div className="cartButtons">
+                    <Button onClick={handleSubmit} variant="contained" disabled={(!validName || !validEmail || !validEmailConf || !validPhone)} color="success">Complete Purchase</Button>
+                    <Button onClick={clearCart} variant="contained" color="error">Clear Cart</Button>
+                </div>
+            </div>
+        </>
             }   
          </>
     )

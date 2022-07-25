@@ -1,10 +1,12 @@
 import { createContext, useEffect, useState } from  "react";
+import { toast } from "react-toastify";
 
 export const CartContext = createContext();
 
 export const CartProvider = ({children}) => {
     const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("cart")) || []);
     const [cantidadActual,setCantidadActual] = useState(0)
+    const [cartForm, setCartForm] = useState([]);
     
     const isInCart = (nanoId) => {
         return cartItems.some((item) => item.nanoId === nanoId);
@@ -12,6 +14,16 @@ export const CartProvider = ({children}) => {
      const totalPrice = () => {
         return cartItems.reduce((acc, item) => acc + item.price * item.seleccionado, 0);
     };
+    const clearCart = () => {
+        setCartForm([]);
+        setCantidadActual(0);
+        setCartItems([]);
+    }
+
+    const cartCheckout = (orderId) => {
+        toast.success("Congratulations! Your purchase has been completed! The order id is: " + orderId, { autoClose: false, });
+        clearCart();
+    }
         
     const addCart = (item, seleccionado) => {
         let newCart;
@@ -19,6 +31,7 @@ export const CartProvider = ({children}) => {
         const newItem ={
             ...item,
             seleccionado,
+            cartForm
         };
         if (isInCart(newItem.nanoId)) {
             let product = cartItems.find((item) => item.nanoId === newItem.nanoId);
@@ -67,6 +80,8 @@ export const CartProvider = ({children}) => {
                 addCart,
                 vaciarCarrito,
                 totalPrice,
+                cartCheckout,
+                clearCart,
             }}>
                 {children}
         </CartContext.Provider>
