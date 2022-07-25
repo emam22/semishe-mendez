@@ -74,3 +74,9 @@ form .send {
     text-align: center;
     color: white;
 }
+.cartButtons{
+    background-color:  rgba(2, 255, 120, 0.294);
+}
+.formItems{
+    background-color:  rgba(2, 255, 120, 0.294);
+}
