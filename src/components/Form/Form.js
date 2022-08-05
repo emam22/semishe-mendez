@@ -3,7 +3,6 @@ import { CartContext } from "../Context/CartContext";
 import { Navigate } from "react-router-dom";
 import { collection, Timestamp, getDocs, writeBatch, query, where, documentId, addDoc } from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig";
-import Swal from "sweetalert";
 import './Form.css';
 import { Button } from "@mui/material";
 import TextField from '@mui/material/TextField';
@@ -12,7 +11,7 @@ import validator from "validator";
 
 export const Form = () => {
 
-    const { cartItems, vaciarCarrito, totalPrice, clearCart, cartCheckout}  = useContext(CartContext);
+    const { cartItems, totalPrice, clearCart, cartCheckout}  = useContext(CartContext);
 
     const [buyerName, setBuyerName] = useState("");
     const [buyerEmail, setBuyerEmail] = useState("");

@@ -7,38 +7,39 @@ import ItemList from './ItemList';
 
 function ItemListContainer() {
     const [dataSemis, setDataSemis] = useState([]);
-    const [error, setError] = useState(false);
+    const [error, setError] = useState("");
     const [loading, setLoading] = useState(true);
     const {categoryId } = useParams();
 
     useEffect(() => {
         
+        
         if(!categoryId) {
             const semisheCollection = collection(db, "Semillas")
             const getData = getDocs(semisheCollection)
+            console.log(getData)
 
             getData
                 .then(respuesta => setDataSemis(respuesta.docs.map(doc=>doc.data())))
-                .catch(error => setError("Error al obtener los productos"))
+                .catch(e => setError("Error"))
                 .finally(() => setLoading(false))
             
         }else{
             const semisheCollection = collection(db, "Semillas")
             const miFiltro = query(semisheCollection,where("category","==",(categoryId)))
             const getData = getDocs(miFiltro)
-        
+            
             getData
-                .then(respuesta => setDataSemis(respuesta.docs.map(doc=>doc.data())))   
+                .then(respuesta => setDataSemis(respuesta.docs.map(doc=>doc.data())) )   
                 .catch(error => setError( "Error al obtener los productos"))
                 .finally(() => setLoading(false))
         }
     }, [categoryId])
-
     return (
     <section className='container'> 
                 {
                     loading
-                    ? <img className="img-portall" src={portal} alt="portall" />
+                    ? <img className="img-portall" src={portal} alt={error} />
                     : <ItemList dataSemis={dataSemis}/> 
                 }
     </section>

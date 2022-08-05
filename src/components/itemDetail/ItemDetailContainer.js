@@ -8,7 +8,7 @@ import ItemDetail from './ItemDetail';
 
 function ItemDetailContainer() {    
     const [dataSemis, setDataSemis] = useState([]);
-    const [error, setError] = useState();
+    const [error, setError] = useState("");
     const [loading, setLoading] = useState(true);
     const { nanoId } = useParams()
 
@@ -18,7 +18,7 @@ function ItemDetailContainer() {
         const getData = getDocs(miFiltro)     
         getData
             .then(respuesta => setDataSemis(respuesta.docs.map(doc=>doc.data())))   
-            .catch((error) => setError("Error al obtener los productos"))
+            .catch((e) => setError("Error al obtener los productos"))
             .finally(() => setLoading(false))
     }, [nanoId])
 
@@ -26,7 +26,7 @@ function ItemDetailContainer() {
 
     return ( 
         <>
-                <ItemDetail prod={dataSemis[0]}/>
+                <ItemDetail prod={dataSemis[0]} />
         </>
     )
 }
