@@ -21,6 +21,7 @@ export const Form = () => {
     const [validEmail, setValidEmail] = useState(false);
     const [validEmailConf, setValidEmailConf] = useState(false);
     const [validPhone, setValidPhone] = useState(false);
+    const [orderId, setOrderId] = useState("");
 
     const handleNameChange = (e) => {
         setBuyerName(e.target.value);
@@ -43,7 +44,7 @@ export const Form = () => {
         setValidEmail(validator.isEmail(buyerEmail));
         setValidEmailConf(validator.equals(buyerEmail, buyerEmailConf));
         setValidPhone(validator.isNumeric(buyerPhone, "es-ES"));
-    }, [buyerName, buyerEmail, buyerEmailConf, buyerPhone]);
+    }, [buyerName, buyerEmail, buyerEmailConf, buyerPhone, orderId]);
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -62,12 +63,16 @@ export const Form = () => {
         const batch = writeBatch(db)
         const ordenesCollection = collection(db, "ordenes")
         const pedido = addDoc(ordenesCollection,orden)
+        pedido
+            .then(pedido => {
+                setOrderId(pedido.id);
+            })
+
         const q = query(pedido, where(documentId(), 'in', cartItems.map(ped => ped.id)))
         pedido.then((res) => {
             const pedidoId = res.id;
             cartCheckout(pedidoId);
         })
-
         const outOfStock = []
         const productos = await getDocs(q)
 
@@ -88,20 +93,27 @@ export const Form = () => {
         <>
             {
             cartItems.length === 0
-            ? <Navigate to="/"/>
-            :
-            <>
-            <h2 className="formItems">Checkout Informacion:</h2>
-            <TextField className="formItems" error={buyerName !== "" && !validName} required variant="filled" label="Full Name" onChange={handleNameChange} value={buyerName} />
-            <TextField className="formItems" error={buyerPhone !== "" && !validPhone} required variant="filled" label="Phone Number" onChange={handlePhoneChange} value={buyerPhone} />
-            <TextField className="formItems" error={buyerEmail !== "" && !validEmail} required variant="filled" label="Email Address" onChange={handleEmailChange} value={buyerEmail} />
-            <TextField className="formItems" error={buyerEmailConf !== "" && !validEmailConf} required variant="filled" label="Confirm Email Address" onChange={handleEmailConfChange} value={buyerEmailConf} />
-                <div className="cartButtons">
-                    <Button onClick={handleSubmit} variant="contained" disabled={(!validName || !validEmail || !validEmailConf || !validPhone)} color="success">Complete Purchase</Button>
-                    <Button onClick={clearCart} variant="contained" color="error">Clear Cart</Button>
-                </div>
-        </>
+                ? <Navigate to="/"/>
+                :
+                <>
+                        {
+                        orderId
+                            ?   <h3 className="formItems, margin-bottomm">Tu Pedido: <br></br> {orderId}</h3>
+                            :
+                                <>
+                                    <h2 className="formItems">Checkout Informacion:</h2>
+                                    <TextField className="formItems" error={buyerName !== "" && !validName} required variant="filled" label="Full Name" onChange={handleNameChange} value={buyerName} />
+                                    <TextField className="formItems" error={buyerPhone !== "" && !validPhone} required variant="filled" label="Phone Number" onChange={handlePhoneChange} value={buyerPhone} />
+                                    <TextField className="formItems" error={buyerEmail !== "" && !validEmail} required variant="filled" label="Email Address" onChange={handleEmailChange} value={buyerEmail} />
+                                    <TextField className="formItems" error={buyerEmailConf !== "" && !validEmailConf} required variant="filled" label="Confirm Email Address" onChange={handleEmailConfChange} value={buyerEmailConf} />
+                                        <div className="cartButtons">
+                                            <Button onClick={handleSubmit} variant="contained" disabled={(!validName || !validEmail || !validEmailConf || !validPhone)} color="success">Complete Purchase</Button>
+                                            <Button onClick={clearCart} variant="contained" color="error">Clear Cart</Button>
+                                        </div>  
+                                </>
+                        }                
+                </>
             }   
-         </>
+        </>
     )
 }

@@ -76,7 +76,16 @@ form .send {
 }
 .cartButtons{
     background-color:  rgba(2, 255, 120, 0.294);
+    margin-bottom: 120px;
 }
 .formItems{
     background-color:  rgba(2, 255, 120, 0.294);
+}
+.margin-bottomm {    
+    padding-top: 80px;
+    padding-bottom: 120px;
+    background-color:  rgba(2, 255, 120, 0.294);
+    text-align: center;
+    line-height: 48px;
+    font-size: xx-large;
 }

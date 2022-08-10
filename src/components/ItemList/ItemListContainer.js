@@ -17,7 +17,6 @@ function ItemListContainer() {
         if(!categoryId) {
             const semisheCollection = collection(db, "Semillas")
             const getData = getDocs(semisheCollection)
-            console.log(getData)
 
             getData
                 .then(respuesta => setDataSemis(respuesta.docs.map(doc=>doc.data())))
